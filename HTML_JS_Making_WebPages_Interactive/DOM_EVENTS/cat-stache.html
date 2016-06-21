@@ -1,0 +1,31 @@
+<!--This webpage puts a mustache image on top of a cat image when the user clicks it, but it always lands up at 100 pixels down and 100 pixels from the left. Change the callback function to use the event properties to position the mustache according to where the user clicks.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Cat-stache</title>
+        <style>
+            #mustache-pic {
+                position: absolute;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <img id="cat-pic" src="https://www.kasandbox.org/programming-images/animals/cat.png" width="300" alt="cat photo">
+        
+        <img id="mustache-pic" src="https://www.kasandbox.org/programming-images/misc/mustache.png" alt="mustache" width="100">
+        
+        <script>
+            var catPic = document.getElementById("cat-pic");
+            var onCatClick = function(e) {
+                var stashePic = document.getElementById("mustache-pic");  
+                stashePic.style.top = "100px";
+                stashePic.style.left = "100px";
+            };
+            catPic.addEventListener("click", onCatClick);
+            
+        </script>
+    </body>
+</html>

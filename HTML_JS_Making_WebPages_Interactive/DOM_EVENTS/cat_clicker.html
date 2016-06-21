@@ -3,6 +3,9 @@
 <!--Step 1: Store the Element-->
 <!--In this first step, find the cat image element and store it in a variable.-->
 
+<!--Step 2: Define Callback function-->
+<!--Now, define a callback function that changes the inner text of the 'cat-chat' div to say 'Meow', or whatever you think cats say when you pet them.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +25,18 @@
         <div id="cat-chat"></div>
         
         <script>
+
+            //creating variable for the cat image element
             var catEl = document.getElementById("cat-pic");
+
+            //creating callback function
+            var onCatClick = function(){
+            
+                //creating a variable for the catChat div
+                var catChatEl = document.getElementById("cat-chat");
+                //inserting text to the div
+                catChatEl.textContent = "Meow";
+        }
         
         </script>
     </body>

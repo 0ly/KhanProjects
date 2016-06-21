@@ -1,7 +1,10 @@
 <!--This webpage is just a blank universe, and you'll fill it with planets and moons in this challenge. -->
 
-<!--Step 1-->
+<!--Step 1: Create a planet-->
 <!--In this first step, use JavaScript to create a div using createElement, assign it the 'planet' class, set a nice background color for it, and finally append it to the body.-->
+
+<!--Step 2: Create a moon-->
+<!--In this step, create another div using createElement, assign it the 'moon' class, and append it to the planet that you just created. When you're done, feel free to add many more planets and moons!-->
 
 <!DOCTYPE html>
 <html>
@@ -39,6 +42,11 @@
     divEle.className = "planet";
     divEle.style.background = "blue";
     document.body.appendChild(divEle);
+
+    var moonDivEle = document.createElement("div");
+    moonDivEle.className = "moon";
+    moonDivEle.style.background = "white";
+    divEle.appendChild(moonDivEle);
         
     </script>
     </body>

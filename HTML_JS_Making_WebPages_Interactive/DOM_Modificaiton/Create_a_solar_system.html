@@ -37,16 +37,22 @@
 
     
     <script>
-
-           var divEle = document.createElement("div");
-    divEle.className = "planet";
-    divEle.style.background = "blue";
-    document.body.appendChild(divEle);
-
+    
+    //create planet
+    var planetDivEle = document.createElement("div");
+    planetDivEle.className = "planet";
+    planetDivEle.style.background = "blue";
+    
+    //insert planet 
+    document.body.appendChild(planetDivEle);
+    
+    //create moon
     var moonDivEle = document.createElement("div");
     moonDivEle.className = "moon";
     moonDivEle.style.background = "white";
-    divEle.appendChild(moonDivEle);
+
+    //insert moon
+    planetDivEle.appendChild(moonDivEle);
         
     </script>
     </body>

@@ -3,6 +3,9 @@
 <!--Step 1-->
 <!-- For this first step, use innerHTML to set what Oh Noes says, and include a strong or em tag somewhere in it.-->
 
+<!--Step 2-->
+<!--In this step, use textContent to show what Winston says - make sure you don't include any HTML tags in it.
+-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,9 +22,10 @@
         <p id="winston-says"></p>
         <script>
             var ohnoesSays = document.getElementById("ohnoes-says");
-            ohnoesSays.innerHTML = "<strong>I'm paranoid of encountering errors</strong>"
-            
+            ohnoesSays.innerHTML = "<strong>I'm paranoid of encountering errors</strong>";
+
             var winstonSays = document.getElementById("winston-says");
+             winstonSays.textContent = "Errors happen";
         </script>
     </body>
 </html>

@@ -6,6 +6,9 @@
 <!--Step 2: Define Callback function-->
 <!--Now, define a callback function that changes the inner text of the 'cat-chat' div to say 'Meow', or whatever you think cats say when you pet them.-->
 
+<!--Step 3: Attach the listner-->
+<!--Finally, assign the callback function as the event listener for the 'click' event for the cat image.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,6 +40,8 @@
                 //inserting text to the div
                 catChatEl.textContent = "Meow";
         }
+          //Attaching the listner
+        catEl.addEventListener("click", onCatClick);
         
         </script>
     </body>

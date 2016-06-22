@@ -1,6 +1,9 @@
 
 <!--This webpage has the start of a Mad Libs game. If you've never played it, that's a game where you fill in a bunch of blanks of different word types, and then a story is generated based on those words, and sometimes the story is surprisingly funny. -->
 
+<!--Step 1-->
+<!--In this step, you're going to finish the game logic in the event listener: find the value of each of the word inputs, and then write out a story that uses each of the values. Make sure you check the console for errors when you play the game.-->
+
 <!DOCTYPE html>
 <html>
  <head>
@@ -27,8 +30,14 @@
         var libButton = document.getElementById('lib-button');
         var libIt = function() {
             var storyDiv = document.getElementById("story");
-            storyDiv.innerHTML = "??Your story here";
-        };
+            
+                 //grabbing values from forms
+            var nounTxt = document.getElementById("noun").value;
+            var adjectiveTxt = document.getElementById("adjective").value;
+            var nameTxt = document.getElementById("person").value;
+            
+            //generated story
+            storyDiv.innerHTML = nameTxt + "'s " + nounTxt+ " is " + adjectiveTxt+ "!" ;
         libButton.addEventListener('click', libIt);
         
     </script>

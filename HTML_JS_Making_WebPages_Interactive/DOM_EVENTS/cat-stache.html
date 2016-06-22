@@ -20,12 +20,15 @@
         <script>
             var catPic = document.getElementById("cat-pic");
             var onCatClick = function(e) {
-                var stashePic = document.getElementById("mustache-pic");  
-                stashePic.style.top = "100px";
-                stashePic.style.left = "100px";
+                var stashePic = document.getElementById("mustache-pic"); 
+                //subtraction of pixels is to place the middle of the mustache at the point of the mouse  
+                 stashePic.style.top = (e.clientY - 15) +"px";
+                 stashePic.style.left = (e.clientX - 50) +"px";
             };
             catPic.addEventListener("click", onCatClick);
             
         </script>
     </body>
 </html>
+
+

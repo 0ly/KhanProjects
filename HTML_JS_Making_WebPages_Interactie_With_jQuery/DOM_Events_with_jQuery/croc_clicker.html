@@ -1,0 +1,23 @@
+<!--This webpage displays an image with text below that should show the number of times that you've clicked that image. Use jQuery to make it work - add an event listener for click events on the image that increments the numClicks variable and updates the text.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Croc Clicker</title>
+    </head>
+    <body>
+    
+    <h1>Challenge: Croc Clicker</h1>
+    <img id="crocs" src="https://www.kasandbox.org/programming-images/animals/crocodiles.png" width="300" alt="Crocodiles chilling">
+    <div id="results"></div>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    var numClicks = 0;
+    $("#results").text("You clicked " + numClicks + " times");
+    
+    </script>
+    
+
+    </body>
+</html>

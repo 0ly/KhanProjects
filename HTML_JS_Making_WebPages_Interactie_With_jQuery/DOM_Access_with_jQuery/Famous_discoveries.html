@@ -7,6 +7,10 @@ If you'd like, you can use console.log() to see what's stored in the variable.--
 <!--Step 2: Change the math heading-->
 <!--Now use jQuery to change the math heading to be the previous text plus an exclamation like ' ...wow!' or '...amazing!'.-->
 
+<!--Step 3: Change the science heading-->
+<!--Now follow the same steps for the science heading: use jQuery to find the element with id='science-heading', store it in a variable named science, and change its text to be the previous text plus some new exciting text.
+(By the way, we'll talk about other ways to change elements in the next section.)-->
+
 
 
 
@@ -43,6 +47,9 @@ If you'd like, you can use console.log() to see what's stored in the variable.--
 
      var math = $("#math-heading");
      math.text(math.text() + "....wow!");
+     
+     var science = $("#science-heading");
+     science.text(science.text() + "....HOLY COW!");
     
     </script>
 </body>

@@ -1,5 +1,8 @@
 <!--This webpage displays images of two different animals (feel free to change them if you'd like). Use jQuery to create a new paragraph that describes the result of combining those 2 animals - make up a new name for your hybrid animal! Then append that new paragraph to the bottom of the page.-->
 
+<!--Step 1: Show the result-->
+<!--Use jQuery to create a new paragraph that describes the result of combining those 2 animals - make up a new name for your hybrid animal! Then append that new paragraph to the bottom of the page.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,8 +29,17 @@
         <p class="result">You get a sharkspider!</p>
         
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+        
         <script>
-            
+
+        //create new P element 
+        var sharkSpiderPara = $("<p>");
+
+       //add text to new paragraph
+        sharkSpiderPara.text("With this stunning evolution, whether at land or at sea, arachnophobes and galeophobes are no longer safe.");
+        
+       //insert new paragraph into document body
+        $("body").append(sharkSpiderPara);
             
         </script>
     </body>

@@ -1,4 +1,7 @@
-<!--This webpage contains a cat that's already animated, but that's only because it's an animated GIF. For this challenge, you'll make the cat move across the screen, too, in JS. Change the walkTheCat function so that it updates the cat's left position property, and then make sure it's called repeatedly using the window.requestAnimationFrame function.-->
+<!--This webpage contains a cat that's already animated, but that's only because it's an animated GIF. For this challenge, you'll make the cat move across the screen, too, in JS. 
+
+<!--Step 1-->
+<!--Change the walkTheCat function so that it updates the cat's left position property, and then make sure it's called repeatedly using the window.requestAnimationFrame function.-->
 
 <!DOCTYPE html>
 <html>
@@ -22,11 +25,18 @@
   var catEl = document.getElementById("cat");
   
   var startTime = new Date().getTime();
-  var walkTheCat = function() {
+ var walkTheCat = function() {
       var currTime = new Date().getTime();
       var secondsElapsed = ((currTime - startTime)/1000);
-  };
-  walkTheCat();
+      var newLeft = secondsElapsed * 30 ;
+      catEl.style.left = newLeft + "px";
+      
+      //only run if the position is less than than the browser's window width
+      if (newLeft < window.innerWidth){
+         window.requestAnimationFrame(walkTheCat);
+         }
+      }
+ walkTheCat();
   </script>
 
     </body>

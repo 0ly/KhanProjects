@@ -1,0 +1,33 @@
+<!--This webpage is about Pig Latin, a fun language. You'll use jQuery to translate each of the paragraphs to Pig Latin. -->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Loopy language</title>
+    </head>
+    <body>
+        
+        <h1>All about Pig Latin</h1>
+        <p>Pig Latin is a language game in which words in English are altered. The objective is to conceal the meaning of the words from others not familiar with the rules. The reference to Latin is a deliberate misnomer, as it is simply a form of jargon, used only for its English connotations as a strange and foreign-sounding language.</p>
+        <p>The origins of Pig Latin are unknown. A youthful Thomas Jefferson wrote letters to friends in Pig Latin.</p>
+        <p>For words that begin with consonant sounds, the initial consonant or consonant cluster is moved to the end of the word, and "ay" is added.</p>
+
+        
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+        <script>
+// Takes a string and returns Pig Latin version of it
+var toPigLatin = function(str) {
+    if (!str.replace) {
+        return 'ERROR: Expected a string!';
+    }
+    return str.replace(/\b(\w)(\w+)\b/g, '$2-$1ay').toLowerCase();
+};
+
+// Iterate through each paragraph, call the toPigLatin function on it
+var $paragraphs = $("p");
+
+        </script>
+    </body>
+</html>

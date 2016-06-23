@@ -27,11 +27,15 @@
             };
             
             //set window interval
-            window.setInterval(countUp, 1000);
+            var timer = window.setInterval(countUp, 1000);
             
             // How can you make it stop counting?
             var stopCountUp = function() {
+                
+                //pass timer obj into clearInterval method to stop the timer
+                    window.clearInterval(timer);
             };
+
             var stopButton = document.getElementById("stop-button");
             stopButton.addEventListener("click", stopCountUp);
             

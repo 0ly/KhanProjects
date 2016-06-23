@@ -1,5 +1,8 @@
 <!--This webpage is about Pig Latin, a fun language. You'll use jQuery to translate each of the paragraphs to Pig Latin. -->
 
+<!--Step 1: Translate the paragraphs-->
+<!--Using either a for loop or the each() method, find each paragraph, send its text through the toPigLatin function, and set the paragraph to that text.-->
+
 
 <!DOCTYPE html>
 <html>
@@ -27,6 +30,34 @@ var toPigLatin = function(str) {
 
 // Iterate through each paragraph, call the toPigLatin function on it
 var $paragraphs = $("p");
+
+//using the each method
+$paragraphs.each(function(index, element){
+    
+    //the current $paragraph obj
+    var $paragraph = $(this);
+
+    //translate the paragraph's text
+    var translatedText = toPigLatin($paragraph.text());
+
+    //assign translated text to the paragrapgh
+    $paragraph.html(translatedText);
+        });
+
+//Implementation using the for loop
+/*
+
+for(var i = 0; i < $paragraphs.length; i++){
+    var element = $paragraphs[i];//DOM node
+    var $paragraph = $(element);
+    var translatedText = toPigLatin($paragraph.text());
+    $paragraph.html(translatedText);
+
+}
+*/
+  
+
+
 
         </script>
     </body>

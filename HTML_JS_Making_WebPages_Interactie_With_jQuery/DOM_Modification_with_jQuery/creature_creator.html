@@ -3,6 +3,9 @@
 <!--Step 1: Show the result-->
 <!--Use jQuery to create a new paragraph that describes the result of combining those 2 animals - make up a new name for your hybrid animal! Then append that new paragraph to the bottom of the page.-->
 
+<!--Step 2: Add class-->
+<!--Now use jQuery to add the class name 'result' to the paragraph that you just created.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,9 +40,12 @@
 
        //add text to new paragraph
         sharkSpiderPara.text("With this stunning evolution, whether at land or at sea, arachnophobes and galeophobes are no longer safe.");
-        
+
        //insert new paragraph into document body
         $("body").append(sharkSpiderPara);
+
+       //add class
+        sharkSpiderPara.addClass("result");
             
         </script>
     </body>

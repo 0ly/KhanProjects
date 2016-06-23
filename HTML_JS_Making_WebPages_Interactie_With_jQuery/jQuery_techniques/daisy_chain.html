@@ -3,6 +3,10 @@
 <!--Step 1: Create a Daisy-->
 <!-- For the first step, use jQuery to create a new <img> element, set the src to a picture of a daisy, set the width attribute to a small number, and set an alt attribute. Finally, append it to the page with appendTo. Chain all the jQuery methods together so that you accomplish all of that in one line of code.-->
 
+<!--Step 2: Make a chain with loop-->
+<!--
+In this step, use a for loop to call that code at least 5 times, so that the webpage displays a chain of daisies across it.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +27,15 @@
                 .attr("width","50")
                 .attr("alt", "A Daisy")
                 .appendTo("body");
+            
+            //using loop to create chains
+            for(var i = 0; i < 5; i++ ){
+                $("<img>")
+                .attr("src","https://upload.wikimedia.org/wikipedia/commons/2/29/English_Daisy_(Bellis_Perennis).jpg")
+                .attr("width","50")
+                .attr("alt", "A Daisy")
+                .appendTo("body");
+            }
 
         </script>
     </body>

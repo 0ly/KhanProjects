@@ -1,4 +1,9 @@
-<!--In this challenge, you'll turn this webpage into a simple stopwatch. First, use setInterval to call the countUp function. Then add code to the countUp function that increments the value of the '#seconds' span by 1 each second.-->
+<!--In this challenge, you'll turn this webpage into a simple stopwatch. 
+
+<!--Step 1: Make it start-->
+<!--First, use setInterval to call the countUp function. Then add code to the countUp function that increments the value of the '#seconds' span by 1 each second.-->
+
+
 
 <!DOCTYPE html>
 <html>
@@ -15,9 +20,14 @@
         <script>
             // Make it count up on a timer, calling this function
             var seconds = document.getElementById("seconds");
+            
             var countUp = function() {
-                // ?
+                //increment the seconds span
+                seconds.textContent = parseFloat(seconds.textContent) + 1;  
             };
+            
+            //set window interval
+            window.setInterval(countUp, 1000);
             
             // How can you make it stop counting?
             var stopCountUp = function() {

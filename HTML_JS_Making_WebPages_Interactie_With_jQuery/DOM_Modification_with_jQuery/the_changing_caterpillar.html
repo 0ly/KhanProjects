@@ -9,6 +9,10 @@
 <!--Step 3: Change the image-->
 <!--Now, use the jQuery attr() method to change the image to be of a butterfly, using our butterfly image at 'https://www.kasandbox.org/programming-images/animals/butterfly_monarch.png'.-->
 
+<!--Step 4: Change the colors-->
+<!--Finally, use the jQuery css() method to add some style to the page - change the color of the heading or paragraph to match the butterfly.-->
+
+
 
 <!DOCTYPE html>
 <html>
@@ -24,7 +28,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     
     <script>
-        
+
         //change the heading
         $("h1").text("The Butterfly");
 
@@ -33,6 +37,18 @@
 
         //changing the image
         $("img").attr("src","https://www.kasandbox.org/programming-images/animals/butterfly_monarch.png");
+
+        //changing colors/adding css
+           
+            //heading css
+        $("h1").css("background", "black");
+        $("h1").css("color", "orange");
+
+            //p css
+        $("p strong").css("color", "orange");
+
+            //image css
+        $("img").css("border", "10px solid black");
     
     </script>
     

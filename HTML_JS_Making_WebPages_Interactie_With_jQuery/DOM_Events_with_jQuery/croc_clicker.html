@@ -1,5 +1,7 @@
 <!--This webpage displays an image with text below that should show the number of times that you've clicked that image. Use jQuery to make it work - add an event listener for click events on the image that increments the numClicks variable and updates the text.-->
 
+<!--Step 1: Add a click listener-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,7 +17,13 @@
     <script>
     var numClicks = 0;
     $("#results").text("You clicked " + numClicks + " times");
-    
+
+    //jQuery event listener
+    $("#crocs").on("click",function(){
+        numClicks++;
+        $("#results").text("You clicked " + numClicks + " times");
+        
+    })
     </script>
     
 

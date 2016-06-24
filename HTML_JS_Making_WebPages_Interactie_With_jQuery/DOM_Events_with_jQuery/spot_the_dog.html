@@ -1,0 +1,33 @@
+<!--This webpage shows an image of a white dog, and places a div on the page when the user clicks the image. Currently, that spot shows up under the image. Change the code to use the event properties to position the spot according to the user's mouse position.-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Challenge: Spot the Dog</title>
+        <style>
+            .dot {
+                border-radius: 10px;
+                background: black;
+                position: absolute;
+                width: 10px;
+                height: 10px;
+            }
+        </style>
+    </head>
+    <body>
+    
+    <img id="dog-pic" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Alopekis_white_male.jpg" width="500" alt="White dog">
+    
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $("#dog-pic").on("click", function(event) {
+        var $dot = $("<div></div>");
+        $dot.addClass("dot");
+        $dot.appendTo("body");
+    });
+    </script>
+    
+
+    </body>
+</html>

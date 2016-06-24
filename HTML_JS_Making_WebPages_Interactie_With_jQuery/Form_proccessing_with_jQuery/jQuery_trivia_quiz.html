@@ -6,25 +6,30 @@
 <!--Step 2: Show the result-->
 <!--In this step, you should add code that figures out what answer the user picked and tells them if they got it right by outputting a message in the '#result' div.-->
 
+<!--Step 3: Show the result part 2-->
+<!--Now, let the user know when they got it wrong, by adding an else that outputs a message in the '#result' div.-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Challenge: jQuery trivia quiz</title>
-        <style>
-            #result {
-                background: rgb(255, 246, 204);
-                border: 2px dotted gold;
-                font-size: 24px;
-                height: 60px;
-                margin-top: 10px;
-            }
-        </style>
-    </head>
-    <body>
+
+<head>
+    <meta charset="utf-8">
+    <title>Challenge: jQuery trivia quiz</title>
+    <style>
+        #result {
+            background: rgb(255, 246, 204);
+            border: 2px dotted gold;
+            font-size: 24px;
+            height: 60px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
 
     <h1>jQuery Quiz</h1>
-    
+
     <form id="trivia-form">
         <label>
             Who invented jQuery?<br>
@@ -38,9 +43,10 @@
         <button type="submit">Check Answer</button>
     </form>
     <div id="result"></div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+     
      //Get form and add event listener
       $("#trivia-form").on("submit",function(e){
         
@@ -56,9 +62,13 @@
        if(selectedAnswer === 'resig'){
            $("#result").text("Thats right!");
        }
+       else{
+           $("#result").text("Incorrect, try again.");
+       }
         
     })
     
     </script>
-    </body>
+</body>
+
 </html>

@@ -1,3 +1,4 @@
+
 <!--In this project, you'll make an interactive scene using HTML images, CSS positioning, and jQuery events.
 
 Start by making something when the user clicks on the Leafers avatar in the webpage. You could change the image (like into an older version of Leafers), play a sound (see example), pop up a div that looks like a speech bubble - anything like that!
@@ -5,7 +6,6 @@ Start by making something when the user clicks on the Leafers avatar in the webp
 Then add at least 2 more interactive elements that changes when the user clicks it.
 
 Don't like the beach or Leafers? Feel free to change the starting images if you'd like. Have fun with it!-->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,6 +16,21 @@ Don't like the beach or Leafers? Feel free to change the starting images if you'
             position: absolute;
             top: 210px;
             left: 378px;
+        }
+        
+         #aqualine {
+            position: absolute;
+            top: 257px;
+            left: 520px;
+            height:40px;
+        }
+     
+        .dot {
+            border-radius: 10px;
+            background: white;
+            position: absolute;
+            width: 10px;
+            height: 10px;
         }
  
             
@@ -28,11 +43,72 @@ Don't like the beach or Leafers? Feel free to change the starting images if you'
 
     <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers">
     
+    <img src = "https://www.kasandbox.org/programming-images/avatars/aqualine-sapling.png" id="aqualine">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+   
+    var $tempLeaf = $("#leafers");
+    console.log($tempLeaf);
+    
+        $("#aqualine").on("click", function(event){
+            
+            //move forward and grow
+            
+            for(var i = 0; i < 100; i++ ){
+                console.log("loop launch");
+                $("#aqualine").css("top", "+=1px");
+                console.log($(aqualine).css("top"));
+            }
+            
+            
+        });
+    
         $("#leafers").on("click", function(event) {
             // Do something!
            
+           //add a dot to the left of leafers
+           
+            var $dot = $("<div></div>");
+            $dot.addClass("dot");
+            $dot.appendTo("body");
+            $dot.css("position", "absolute")
+            .css("top",  279 + "px")
+            .css("left", 395 + "px");
+                
+            
+            //add a bigger dot offset left of previous dot
+        
+            $("<div></div>")
+            .addClass("dot")
+            .appendTo("body")
+            .width("20px")
+            .height("20px")
+            .css("position", "absolute")
+            .css("top",  266 + "px")
+            .css("left", 367 + "px");
+            
+            //add a bigger dot offset left of previous dot with text
+                $("<div></div>")
+            .text("This is the life")  
+            .css("text-align","center")
+            .addClass("dot")
+            .appendTo("body")
+            .css("borderRadius","50px")
+            .width("137px")
+            .height("50px")
+            .css("position", "absolute")
+            .css("top",  222 + "px")
+            .css("left", 234 + "px");
+            
+            
+      
+        });
+           
+           
+           
+            
+  
     </script>
     </body>
 </html>

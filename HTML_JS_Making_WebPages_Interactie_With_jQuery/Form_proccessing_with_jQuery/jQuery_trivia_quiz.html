@@ -3,6 +3,9 @@
 <!--Step 1: Add the event listener-->
 <!--In this first step, add an event listener to the form's 'submit' event.-->
 
+<!--Step 2: Show the result-->
+<!--In this step, you should add code that figures out what answer the user picked and tells them if they got it right by outputting a message in the '#result' div.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,6 +46,16 @@
         
         //prevent browser default behavior
         e.preventDefault();
+
+        //var to store selected answer
+        var selectedAnswer = $("#trivia-answer").val();
+       
+       //console.log(selectedAnswer);
+       
+       //check if answer is correct
+       if(selectedAnswer === 'resig'){
+           $("#result").text("Thats right!");
+       }
         
     })
     

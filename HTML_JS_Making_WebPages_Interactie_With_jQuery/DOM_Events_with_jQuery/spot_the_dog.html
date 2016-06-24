@@ -1,5 +1,7 @@
 <!--This webpage shows an image of a white dog, and places a div on the page when the user clicks the image. Currently, that spot shows up under the image. Change the code to use the event properties to position the spot according to the user's mouse position.-->
 
+<!--Step 1: Position the spot-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +27,11 @@
         var $dot = $("<div></div>");
         $dot.addClass("dot");
         $dot.appendTo("body");
+
+        //css to position dot on mouse click position
+        $dot.css("position", "absolute")
+            .css("top", event.pageY + "px")
+            .css("left", event.pageX + "px");
     });
     </script>
     

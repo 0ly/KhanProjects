@@ -35,9 +35,27 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        // when the user submits the form,
-        //   check that their answer is correct
-        //   and show them appropriate message
+           //Click event        
+        $("#joke-form").on("submit", function(e){
+            e.preventDefault();
+            
+            //storing user's input
+            var userAnswer = $(this).find("[type = text]").val();         
+            //test 
+            console.log(userAnswer);
+            
+             //Check answer and display msg
+            if(userAnswer === "JQUERY"){
+              
+              //test
+               console.log("correct");
+            }
+            else{
+                //test
+                console.log("incorrect");
+            }
+            
+        });
     </script>
     </body>
 </html>

@@ -6,6 +6,7 @@ Start by making something when the user clicks on the Leafers avatar in the webp
 Then add at least 2 more interactive elements that changes when the user clicks it.
 
 Don't like the beach or Leafers? Feel free to change the starting images if you'd like. Have fun with it!-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,28 +48,25 @@ Don't like the beach or Leafers? Feel free to change the starting images if you'
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-   
-    var $tempLeaf = $("#leafers");
-    console.log($tempLeaf);
-    
-        $("#aqualine").on("click", function(event){
+ 
+    //Aqualine on mouse hover
+        $("#aqualine").on("mouseover", function(event){
             
             //move forward and grow
-            
-            for(var i = 0; i < 100; i++ ){
-                console.log("loop launch");
-                $("#aqualine").css("top", "+=1px");
-                console.log($(aqualine).css("top"));
+            $("#aqualine").css("top", "+=10px")
+                .css("height", "+=5px");
+                
+            //reset when reaching end of image
+            if(parseFloat($("#aqualine").css("top")) === 387){
+                $("#aqualine").css("top", "257px")
+                 .css("height", "40px");
             }
-            
-            
         });
     
+        //leafers thought bubble
         $("#leafers").on("click", function(event) {
-            // Do something!
            
            //add a dot to the left of leafers
-           
             var $dot = $("<div></div>");
             $dot.addClass("dot");
             $dot.appendTo("body");
@@ -78,37 +76,34 @@ Don't like the beach or Leafers? Feel free to change the starting images if you'
                 
             
             //add a bigger dot offset left of previous dot
-        
             $("<div></div>")
-            .addClass("dot")
-            .appendTo("body")
-            .width("20px")
-            .height("20px")
-            .css("position", "absolute")
-            .css("top",  266 + "px")
-            .css("left", 367 + "px");
+                .addClass("dot")
+                .appendTo("body")
+                .width("20px")
+                .height("20px")
+                .css("position", "absolute")
+                .css("top",  266 + "px")
+                .css("left", 367 + "px");
             
             //add a bigger dot offset left of previous dot with text
-                $("<div></div>")
-            .text("This is the life")  
-            .css("text-align","center")
-            .addClass("dot")
-            .appendTo("body")
-            .css("borderRadius","50px")
-            .width("137px")
-            .height("50px")
-            .css("position", "absolute")
-            .css("top",  222 + "px")
-            .css("left", 234 + "px");
-            
-            
-      
+            var $thoughtBub =$("<div></div>")
+                .text("This is the life")  
+                .css("text-align","center")
+                .addClass("dot")
+                .appendTo("body")
+                .css("borderRadius","50px")
+                .width("150px")
+                .height("40px")
+                .css("position", "absolute")
+                .css("top",  222 + "px")
+                .css("left", 234 + "px")
+                //text changes when mouse hovers, then changes back when mouse leaves
+                .hover(function(){              
+                    $thoughtBub.html("GET OUT OF MY HEAD!");
+                }, function(){
+                    $thoughtBub.text("This is the life");   
+            });
         });
-           
-           
-           
-            
-  
     </script>
     </body>
 </html>

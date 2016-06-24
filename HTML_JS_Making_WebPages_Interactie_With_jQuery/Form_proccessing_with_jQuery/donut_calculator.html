@@ -1,5 +1,8 @@
 <!--This webpage displays a form for calculating how many donuts Winston will eat in his lifetime, depending how old he makes it. -->
 
+<!--Step 1: Process the form-->
+<!--We've already set up the basic form processing handler for you, so in this step, you're going to change the processing logic to get the value of the inputted age, pass it to the calcDonuts function, and output that in the results div.-->
+
 
 <!DOCTYPE html>
 <html>
@@ -31,9 +34,8 @@
     $("#calculator-form").on("submit", function(event) {
         event.preventDefault();
         
-        // TODO: Find inputted age, calculate # of donuts
-        
-        $("#calculator-results").text("Winston ate ?? donuts");
+        //using calcDonuts method inline passing jQuery find to retrieve user's input.
+        $("#calculator-results").text("Winston ate " + calcDonuts($(this).find("[name = age]").val()) +  " donuts");
     });
     </script>
     </body>

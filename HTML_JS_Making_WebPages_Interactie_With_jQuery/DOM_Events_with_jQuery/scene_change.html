@@ -1,0 +1,38 @@
+<!--In this project, you'll make an interactive scene using HTML images, CSS positioning, and jQuery events.
+
+Start by making something when the user clicks on the Leafers avatar in the webpage. You could change the image (like into an older version of Leafers), play a sound (see example), pop up a div that looks like a speech bubble - anything like that!
+
+Then add at least 2 more interactive elements that changes when the user clicks it.
+
+Don't like the beach or Leafers? Feel free to change the starting images if you'd like. Have fun with it!-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Project: Scene change</title>
+        <style>
+        #leafers {
+            position: absolute;
+            top: 210px;
+            left: 378px;
+        }
+ 
+            
+        </style>
+    </head>
+    <body>
+    
+
+    <img src="https://www.kasandbox.org/programming-images/landscapes/beach-with-palm-trees.png">
+
+    <img src="https://www.kasandbox.org/programming-images/avatars/leafers-seedling.png" id="leafers">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $("#leafers").on("click", function(event) {
+            // Do something!
+           
+    </script>
+    </body>
+</html>

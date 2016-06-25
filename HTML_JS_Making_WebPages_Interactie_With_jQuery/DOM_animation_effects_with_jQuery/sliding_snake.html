@@ -1,4 +1,7 @@
 <!--This webpage displays an image of a rather scary snake.-->
+<!--Step 1-->
+<!-- In this step, you'll make it scarier by using jQuery's slideDown to animate it coming down from the top of the page.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,8 +24,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     var $pic = $("#snake-pic");
-    $pic.hide();
-    
+    $pic.hide()
+        .slideDown(1000);
     </script>
     </body>
 </html>

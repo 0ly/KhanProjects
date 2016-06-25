@@ -38,6 +38,11 @@
            //Click event        
         $("#joke-form").on("submit", function(e){
             e.preventDefault();
+
+            //create div for result msgs
+           var $resultDiv = $("<div></div>")
+                .attr("id","results")
+                .appendTo("body");
             
             //storing user's input
             var userAnswer = $(this).find("[type = text]").val();         
@@ -46,13 +51,18 @@
             
              //Check answer and display msg
             if(userAnswer === "JQUERY"){
-              
-              //test
-               console.log("correct");
+              $("#results").text("Correct!");
+
+              //TODO: Add button or event to start a new word
+              //clear results div when moving on to new word
+
+              //TODO: expand game to include more words
+              //Add array with list of words
+              //update scrambled span, use loop to add random char from string in the array?
             }
             else{
-                //test
-                console.log("incorrect");
+               $("#results").text("That is incorrect, try again.");
+
             }
             
         });

@@ -1,4 +1,7 @@
 <!--This webpage displays an avatar's image and name (Aqualine!).-->
+
+<!--Step 1: Animate the image -->
+<!--In this first step, use jQuery's animate function to make Aqualine grow larger.-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,6 +24,12 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
+
+        $("div img ").animate({
+            height: "400px",
+            width: "400px"
+        }, 1500);
+    
     
     </script>
     </body>

@@ -1,7 +1,9 @@
 <!--This webpage displays an image of a rather scary snake.-->
-<!--Step 1-->
+<!--Step 1: Slide the snake-->
 <!-- In this step, you'll make it scarier by using jQuery's slideDown to animate it coming down from the top of the page.-->
 
+<!--Step 2: Announce the snake-->
+<!--In this step, you'll announce the snake once he's slid down from the top. You can do that by adding two parameters to slideDown, an amount to delay and a post-animation callback function. In that callback function, use jQuery to append text to the bottom of the page that announces the snake.-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +27,13 @@
     <script>
     var $pic = $("#snake-pic");
     $pic.hide()
-        .slideDown(1000);
+         .slideDown(1000, function(){
+            $("<p></p>")
+                .appendTo("body")
+                    .text("I AM SNAKE!")
+                        .hide()
+                            .slideDown(1000);
+        });
     </script>
     </body>
 </html>

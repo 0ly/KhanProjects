@@ -2,6 +2,10 @@
 
 <!--Step 1: Animate the image -->
 <!--In this first step, use jQuery's animate function to make Aqualine grow larger.-->
+
+<!--Step 2: Animate the headline-->
+<!--In this step, animate the avatar's name so that the font size gets bigger.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -29,6 +33,11 @@
             height: "400px",
             width: "400px"
         }, 1500);
+
+        $("h1").animate({
+        fontSize: "4em",
+        marginLeft: "30px",
+    },1500);
     
     
     </script>

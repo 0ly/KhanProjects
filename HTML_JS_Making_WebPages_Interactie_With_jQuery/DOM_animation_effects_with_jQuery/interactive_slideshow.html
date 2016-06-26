@@ -1,4 +1,8 @@
 <!--In this project, you'll use jQuery to make an interactive slideshow with multiple images and animated transitions.-->
+<!--Steps-->
+<!--Currently, this webpage only has one image and a non-functioning "Next" button. To start off with, figure out how you can get that "Next" button working, to show another image. Then add a "Prev" button that shows the previous image.
+
+Once you get all that working, add some pizazz! Transition the images in using jQuery effects or animations, add some CSS styles (or a framework like Bootstrap) to make the images and button look slick, add captions so users know what the images are. You can also try to only load the images once you need them -- so that users' browsers only spend bandwidth on downloading images they'll actually look at. -->
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +16,7 @@
     <body>
     
     <br>
-    <img src="https://www.kasandbox.org/programming-images/food/mushroom.png" width="400" alt="Mushrooms">
+    <img width="400" alt="">
     <button type="button">Next ➡</button>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
@@ -20,6 +24,64 @@
     
     $("img").hide();
     $("img").slideDown();
+    
+      var cI = 0;
+      var imageSrcs = ["https://www.kasandbox.org/programming-images/food/mushroom.png","https://www.kasandbox.org/programming-images/food/coffee-beans.png","https://www.kasandbox.org/programming-images/food/broccoli.png","https://www.kasandbox.org/programming-images/food/berries.png"];
+      
+      var imageAlts = ["mushrooms", "coffee beans", "broccoli", "berries"];
+      
+      $("img").attr({
+          src : imageSrcs[cI],
+          alt : imageAlts[cI]
+          });
+      
+      function updateImage(){
+          $("img").attr({
+          src : imageSrcs[cI],
+          alt : imageAlts[cI]
+          });
+      }
+      
+      
+    //next on click event
+    $("[type = button]").on("click",function(){
+        
+        //increment current image tracker and update image
+        
+        if(cI < imageSrcs.length - 1)
+        {
+            cI++;
+            updateImage();
+            
+        }
+        else{
+            //nothing for now
+        }
+        
+       // create previos button if it hasnt already been created
+       if(!($("#prevBtn").length)){
+           
+           $("<button>", {
+                type: "button",
+                html: "Prev",
+                id: "prevBtn"
+            })
+                .appendTo($("body"))
+                .on("click", function(){
+          
+                    if(cI > 0 ){
+          
+                        cI--;
+                        updateImage();
+                    }
+                    else{
+                        
+                        //nothing for now
+                        
+                    };
+                });
+           }
+       });
     
     </script> 
     

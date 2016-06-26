@@ -12,13 +12,22 @@ Once you get all that working, add some pizazz! Transition the images in using j
         <style>
         
         </style>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
+
     
-    <br>
-    <img width="400" alt="">
-    <button type="button">Next ➡</button>
+    <button id ="prevBtn" type="button" class="btn btn-default">
+     <span class="glyphicon glyphicon-arrow-left"></span> Previous
     
+    </button>
+    
+    <img class="img-rounded" width="400" alt="">
+    
+    <button id="nextBtn" type="button" class="btn btn-default"> <span class="glyphicon glyphicon-arrow-right"></span> Next </button>
+    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     
@@ -36,15 +45,19 @@ Once you get all that working, add some pizazz! Transition the images in using j
           });
       
       function updateImage(){
-          $("img").attr({
-          src : imageSrcs[cI],
-          alt : imageAlts[cI]
+          
+          $("img").fadeOut(500,function(){
+              $("img").attr({
+                  src : imageSrcs[cI],
+                  alt : imageAlts[cI]
+              })
+                .fadeIn(500);
           });
-      }
+      };
       
       
     //next on click event
-    $("[type = button]").on("click",function(){
+    $("#nextBtn").on("click",function(){
         
         //increment current image tracker and update image
         
@@ -56,34 +69,27 @@ Once you get all that working, add some pizazz! Transition the images in using j
         }
         else{
             //nothing for now
-        }
+        };
         
        // create previos button if it hasnt already been created
-       if(!($("#prevBtn").length)){
-           
-           $("<button>", {
-                type: "button",
-                html: "Prev",
-                id: "prevBtn"
-            })
-                .appendTo($("body"))
-                .on("click", function(){
-          
-                    if(cI > 0 ){
-          
-                        cI--;
-                        updateImage();
-                    }
-                    else{
-                        
-                        //nothing for now
-                        
-                    };
-                });
-           }
-       });
+       
+               
+    });
     
-    </script> 
+    //Previos button click event
+     $("#prevBtn").on("click", function(){
+         if(cI > 0 ){
+         cI--;
+         updateImage();
+             
+         }
+         else{
+                //nothing for now
+         };
+     
+     
+     });
+   </script> 
     
     </body>
 </html>

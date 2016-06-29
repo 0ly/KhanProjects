@@ -6,8 +6,8 @@ var Walker = function() {
 };
 
 Walker.prototype.display = function() {
+    //the blob
     stroke(0, 0, 0);
-    //point(this.x, this.y);
     noStroke();
     fill(219, 81, 81);
     ellipse(this.x,this.y, 20,20);
@@ -18,6 +18,8 @@ Walker.prototype.display = function() {
 // Randomly move right, left, down, or up
 
 Walker.prototype.walk = function() {
+
+    //varible to change speed easier
     var speed = 5;
     var choice = floor(random(4));
     if (choice === 0) {

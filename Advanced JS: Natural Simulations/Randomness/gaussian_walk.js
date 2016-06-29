@@ -1,7 +1,9 @@
 /*This walker walks a random step size in each direction, but we want it to use a normal distribution to pick the step size now.*/
 
+/*Step 1: Initialize the generator*/
+/*Start by storing a new Random() instance in the generator variable at the top of the program.*/
 
-var generator;
+var generator = new Random(1);
 var standardDeviation;
 var mean;
 

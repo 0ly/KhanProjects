@@ -14,11 +14,11 @@ Walker.prototype.display = function() {
 Walker.prototype.walk = function() {
     var r = random(1);
      
-    if (r < 0.4) {
+    if (r < 0.1) {
       this.x++;
-    } else if (r < 0.6) {
+    } else if (r < 0.2) {
       this.x--;
-    } else if (r < 0.8) {
+    } else if (r < 0.4) {
       this.y++;
     } else {
       this.y--;

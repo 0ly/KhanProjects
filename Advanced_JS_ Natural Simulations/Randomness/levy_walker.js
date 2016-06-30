@@ -1,6 +1,9 @@
 // Generates random numbers using the Monte Carlo Method
 /*The steps of this walker follow an uniform distribution - all step lengths are equally likely - as they are based on the random function. We want you to change it to a probability distribution - smaller steps are more likely - by using the values from the monteCarlo function instead.*/
 
+/*Step 1: Use the Monte Carlo method*/
+
+
 var monteCarlo = function() {
     while (true) {
         var r1 = random(1);
@@ -25,7 +28,7 @@ Walker.prototype.display = function() {
 
 // Randomly move up, down, left, right, or stay in one place
 Walker.prototype.walk = function() {
-    var stepSize = random(0, 10);
+     var stepSize = monteCarlo() * random(0,10);
  
     var xStepSize = random(-stepSize, stepSize);
     var yStepSize = random(-stepSize, stepSize);

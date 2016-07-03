@@ -6,6 +6,9 @@
 /*Step 2: Measure Closeness*/
 /*Now that you know the magnitude of the biggest possible direction vector, compare that to the magnitude of the vector that represents the current distance from the mouse to the circle. The goal is to come up with a number between 0 and 1, where 0 is the farthest away and 1 is right on top.*/
 
+/*Step 3: Vary the acceleration*/
+/*Finally you have a number you can use to vary the acceleration proportionally to the mouse distance. Use that to affect the magnitude of the acceleration vector.*/
+
 var Mover = function() {
     this.position = new PVector(width/2, height/2);
     this.velocity = new PVector(0, 0);
@@ -20,12 +23,10 @@ Mover.prototype.update = function() {
     var maxMag = maxDir.mag();
     var dir = PVector.sub(mouse, this.position);
     //closeness
-    var closeness = (maxMag - dir.mag())/maxMag;
-    
- 
-
+    var closeness = (maxMag - dir.mag())/maxMag;     
     dir.normalize();
-    dir.mult(0.5);
+    //vary the accelration by closeness
+    dir.mult(closeness);
     this.acceleration = dir;
     this.velocity.add(this.acceleration);
     this.velocity.limit(5);

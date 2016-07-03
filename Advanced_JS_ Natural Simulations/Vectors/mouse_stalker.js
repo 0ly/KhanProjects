@@ -3,6 +3,9 @@
 /*Step 1: Star with some vector math*/
 /* To start off with, do some vector math to figure out the magnitude of the biggest possible direction vector, which we could compare our current direction vector to. (Think about it this way: what is the farthest your mouse could be away from the circle?)*/
 
+/*Step 2: Measure Closeness*/
+/*Now that you know the magnitude of the biggest possible direction vector, compare that to the magnitude of the vector that represents the current distance from the mouse to the circle. The goal is to come up with a number between 0 and 1, where 0 is the farthest away and 1 is right on top.*/
+
 var Mover = function() {
     this.position = new PVector(width/2, height/2);
     this.velocity = new PVector(0, 0);
@@ -11,12 +14,15 @@ var Mover = function() {
 
 Mover.prototype.update = function() {
     var mouse = new PVector(mouseX, mouseY);
-    var dir = PVector.sub(mouse, this.position);
-    
     //creates a vector by subtracting a PVector with 0 values from a PVector with the canvas's dimensions(the biggest possible vector)
     var maxDir = PVector.sub(new PVector(0,0), new PVector(width,height));
     //the magnitude of the biggest possible vector.
     var maxMag = maxDir.mag();
+    var dir = PVector.sub(mouse, this.position);
+    //closeness
+    var closeness = (maxMag - dir.mag())/maxMag;
+    
+ 
 
     dir.normalize();
     dir.mult(0.5);

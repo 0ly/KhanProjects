@@ -1,4 +1,6 @@
 /*This light saber is drawn according to the coordinates of a vector.*/
+/*Step 1: Make it grow!*/
+/*Use the keyPressed function to make it double in size every time the user presses the up arrow, by multiplying the vector.*/
 
 var  v = new PVector(50, 75);
 
@@ -15,3 +17,12 @@ var drawSaber = function() {
 };
 
 drawSaber();
+
+keyPressed = function(){
+        if(keyCode===38){
+            
+            v.mult(2);
+            //println(v.x + " " + v.y);
+        }
+        drawSaber();
+    };

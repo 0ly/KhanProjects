@@ -10,10 +10,10 @@ var drawSaber = function() {
     background(0, 0, 0);
     // glow
     strokeWeight(8);
-    stroke(107, 206, 219, 150);
+    stroke(97, 94, 94, 150);
     line(0, 400, v.x, 400-v.y);
     // blade
-    stroke(255, 255, 255);
+    stroke(237, 9, 9);
     strokeWeight(4);
     line(0, 400, v.x, 400-v.y);
 };

@@ -4,6 +4,10 @@
 /*Fix that by calculating and applying the drag force at the appropriate time, using methods from the Liquid object.*/
 
 
+/*Step 2: Different Widths! */
+/*These logs are all the same width now, BORING! Randomize the widths when the logs are first created, in some reasonable range.*/
+
+
 var Liquid = function(x, y, w, h, c) {
     this.x = x;
     this.y = y;
@@ -73,7 +77,7 @@ var logs = [];
 var liquid = new Liquid(0, height/2, width, height/2, 0.1);
 
 for (var i = 0; i < 5; i++) {
-    logs[i] = new Log(20, 20+i*width/5, 0);
+    logs[i] = new Log(random(20, 65), 20+i*width/5, 0);
 }
     
 draw = function() {

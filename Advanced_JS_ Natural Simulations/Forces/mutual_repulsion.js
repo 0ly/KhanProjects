@@ -1,5 +1,8 @@
 /*This is the program we just saw, where movers mutually attract each other.*/
 
+/*Step 1: Turn that attraction into repulsion!*/
+/*This is the program we just saw, where movers mutually attract each other. Change the force calculation so that they mutually repulse each other instead, based on their distance.*/
+
 var G = 1;
 
 var Mover = function(m, x, y) {
@@ -32,7 +35,10 @@ Mover.prototype.calculateAttraction = function(m) {
     var distance = force.mag();
     distance = constrain(distance, 5.0, 25.0);
     force.normalize();
-    var strength = (G * this.mass * m.mass) / (distance * distance);
+    
+    //step 3....
+    var strength = -(G * this.mass * m.mass) / (distance * distance);
+    
     force.mult(strength);
     return force;
 };

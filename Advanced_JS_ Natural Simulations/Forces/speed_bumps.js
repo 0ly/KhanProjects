@@ -1,8 +1,16 @@
 /*This program simulates a skateboard rolling down a road with minimal friction. We're going to extend it to show many skateboards rolling down, and slowing down due to a speed bump. */
+
 /*Step 1: Add more skateboards!*/
 /*To start off with, add more skateboards to the road, at different masses and positions*/
+
 /*Step 2: Show the speed bump!*/
 /*There's a SpeedBump object type defined in this program, but no instances of it yet. Create a new SpeedBump and display it on top of the road.*/
+
+/*Step 3: Slow the boards down!*/
+/*The bump isn't doing anything - BORING! You'll fix that now.
+
+When the skateboard is going through the bumper, it should feel an higher attriction force than it would on the road, slowing it down. To simulate that, change the coefficient of friction to an higher value whenever the skateboard is over the bump; use the SpeedBump.isUnder method to check for it, passing the skateboard object as argument.*/
+
 
 
 var Skateboard = function(x, m) {
@@ -80,6 +88,9 @@ draw = function() {
         var accel = new PVector(0, 0.1*boards[i].mass);
         
         var c = 0.01;       // Coefficient of friction
+        if(bump.isUnder(boards[i])){
+            c = 1;
+        }
         var normal = 1;
         var frictionMag = c * normal;
         var friction = boards[i].velocity.get();

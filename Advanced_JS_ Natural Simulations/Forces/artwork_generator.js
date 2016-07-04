@@ -1,4 +1,6 @@
 /*Create beautiful artwork based on movement around an attractor.*/
+/*Step 1: Make Trails*/
+/*To turn this simulation into an artwork generator, make it so that the movers draw trails as they travel through the space. All you need to do is remove a line of code!*/
 
 
 var Attractor = function() {
@@ -57,7 +59,7 @@ for (var i = 0; i < 10; i++) {
 }
 
 draw = function() {
-    background(255, 255, 255);
+    //background(255, 255, 255);
     
     attractor.display();
     for (var i = 0; i < movers.length; i++) {

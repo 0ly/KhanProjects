@@ -1,5 +1,9 @@
 /*This program creates a balloon that rests at the bottom of the screen*/
 
+/*Step 1: Fill it with helium!*/
+/*Apply a force that simulates filling the balloon with helium- like an inner wind force!*/
+
+
 var Balloon = function() {
     this.mass = 1;
     this.height = 100;
@@ -36,6 +40,9 @@ var m = new Balloon();
 
 draw = function() {
     background(224, 224, 224);
+
+    var heliumDispenser = new PVector(0, -0.001);
+    m.applyForce(heliumDispenser);
     
     m.update();
     m.display();

@@ -3,6 +3,9 @@
 /*Step 1: Calculate the wall force!*/
 /*We've already defined a calculateWallForce() method, so you just need to make it return an appropriate force. In the next step, you'll actually apply that force.*/
 
+/*Step 2: Use the force!*/
+/*Now that you've calculated the force, check it works by applying it to each of the balls on each update.*/
+
 var Ball = function(m, x, y) {
     this.mass = m;
     this.position = new PVector(x, y);
@@ -68,6 +71,7 @@ draw = function() {
     for (var i = 0; i < balls.length; i++) {
         balls[i].applyForce(wind);
         balls[i].applyForce(gravity);
+        balls[i].applyForce(balls[i].calculateWallForce());
         balls[i].update();
         balls[i].display();
     }

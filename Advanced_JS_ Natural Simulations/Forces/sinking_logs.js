@@ -1,4 +1,9 @@
 /*These logs should be decelerating when they hit the water, from the fluid resistance, but they're bouncing back up! */
+
+/*Step 1: Add fluid resistance*/
+/*Fix that by calculating and applying the drag force at the appropriate time, using methods from the Liquid object.*/
+
+
 var Liquid = function(x, y, w, h, c) {
     this.x = x;
     this.y = y;
@@ -76,6 +81,14 @@ draw = function() {
     liquid.display();
 
     for (var i = 0; i < logs.length; i++) {
+        
+        //liquid check
+        if(liquid.contains(logs[i])){
+
+            var dragForce = liquid.calculateDrag(logs[i]);
+            logs[i].applyForce(dragForce);
+        }
+
         var gravity = new PVector(0, 0.1*logs[i].mass);
         logs[i].applyForce(gravity);
         

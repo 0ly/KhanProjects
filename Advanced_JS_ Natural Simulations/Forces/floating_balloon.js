@@ -3,6 +3,10 @@
 /*Step 1: Fill it with helium!*/
 /*Apply a force that simulates filling the balloon with helium- like an inner wind force!*/
 
+/*Step 2: Add a ceiling!*/
+/*The balloon floats off forever now, but that makes us sad. Simulate a ceiling in the room by making the balloon reverse its velocity when it hits the top edge.*/
+
+
 
 var Balloon = function() {
     this.mass = 1;
@@ -33,6 +37,11 @@ Balloon.prototype.display = function() {
 };
 
 Balloon.prototype.checkEdges = function() {
+    Balloon.prototype.checkEdges = function() {
+    if(this.position.y < this.height / 2){
+        this.velocity.y *= -1;
+    }
+}
 };
 
 

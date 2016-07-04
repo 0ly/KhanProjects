@@ -1,5 +1,8 @@
 /*The balls in this program quickly fall out of the screen, never to be seen of again. To keep them inside, calculate a force that will push back on them when they get close to the walls.*/
 
+/*Step 1: Calculate the wall force!*/
+/*We've already defined a calculateWallForce() method, so you just need to make it return an appropriate force. In the next step, you'll actually apply that force.*/
+
 var Ball = function(m, x, y) {
     this.mass = m;
     this.position = new PVector(x, y);
@@ -28,17 +31,25 @@ Ball.prototype.display = function() {
 
 Ball.prototype.calculateWallForce = function() {
 
+        var xWalls = 0;
+    var yWalls =0;
+
     if (this.position.x > width) {
+        xWalls = -1;
 
     } else if (this.position.x < 0) {
+        xWalls = 1;
 
     }
 
     if (this.position.y > height) {
+        yWalls = -1;
 
     } else if (this.position.y < 0) {
-
+        yWalls = 1;
     }
+    
+    return new PVector(xWalls,yWalls);
     
 };
 

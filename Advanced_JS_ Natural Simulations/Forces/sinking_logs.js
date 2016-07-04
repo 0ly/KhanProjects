@@ -7,6 +7,9 @@
 /*Step 2: Different Widths! */
 /*These logs are all the same width now, BORING! Randomize the widths when the logs are first created, in some reasonable range.*/
 
+/*Step 3: Pay attention to area!*/
+/*One of the factors in determining the drag force is the frontal area of the object that's pushing through the liquid. We've been ignoring it so far (effectively setting it to 1), but now that we have logs of different widths, we should actually care about it. Change the drag calculation so that a log with greater frontal area experiences greater drag.*/
+
 
 var Liquid = function(x, y, w, h, c) {
     this.x = x;
@@ -24,7 +27,7 @@ Liquid.prototype.contains = function(m) {
   
 Liquid.prototype.calculateDrag = function(m) {
     var speed = m.velocity.mag();
-    var dragMagnitude = this.c * speed * speed;
+      var dragMagnitude = this.c * speed * speed * m.width/28;
     
     var dragForce = m.velocity.get();
     dragForce.mult(-1);

@@ -1,11 +1,16 @@
 /*This program starts with a boulder sitting at the top of the mountain. */
 
-/*Step 1: Make it fall*/
+//Step 1: Make it fall
 /*Apply a simple gravity-like force that makes it fall down the slope.*/
 
-/*Step 2: BOULDER ROLL!*/
+//Step 2: BOULDER ROLL!
 /*
 The boulder is rotated each time, but the angle never changes. Compute the angular acceleration based on the normal acceleration, and use that to determine a new angle.
+*/
+
+//Step 3: Push it back
+/*  
+Now, give our beaver Hopper the power to push the boulder back up. Whenever the user is pressing the mouse, apply an opposite force that's strong enough to counter the gravity.
 */
 
 angleMode = "radians";
@@ -77,8 +82,14 @@ Boulder.prototype.drawShape = function() {
 
 var boulder = new Boulder(6, 10, 10);
 var gravity = new PVector(0.1,0.1);
+var pushBack = new PVector(-0.5, -0.5);
 
 draw = function() {
+
+     if(mouseIsPressed){
+        boulder.applyForce(pushBack);
+    }
+
     background(215, 245, 245);
     
     // draw mountain

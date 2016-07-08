@@ -4,6 +4,8 @@
 /*Make it so that it accelerates when you press the right arrow, but then the acceleration goes back to 0 when you release it.*/
 /*Step 2: Stop the car*/
 /*Now that the car is going, let's add a brake to stop it. Make it so that when you press the left arrow, the car decelerates.*/
+/*Step 3: Dont go backwards*/
+/*Do you notice when you decelerate for too long, the car eventually goes backwards? (Try it if you haven't!) Add a check to make sure that the car's velocity never goes below 0, to prevent that from happening.*/
 
 var Car = function() {
     this.position = new PVector(width/2, height/2);
@@ -13,7 +15,14 @@ var Car = function() {
 
 Car.prototype.update = function() {
     this.velocity.add(this.acceleration);
+   
     this.velocity.limit(10);
+
+      if(this.velocity.x <= 0 ){
+       
+        this.velocity.set(0,0);
+        }
+
     this.position.add(this.velocity);
 };
 

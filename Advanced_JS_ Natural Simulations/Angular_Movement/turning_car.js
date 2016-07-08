@@ -1,4 +1,6 @@
 /*This program displays a car that starts with a constant velocity. In the challenge, you'll get it to turn using the keyboard and point towards the angle of movement. */
+//Step 1: Add keyboard control*
+/*This program displays a car that starts with a constant velocity. In the challenge, you'll get it to turn using the keyboard and point towards the angle of movement. For this step, just implement code that will call the car's currently empty turnLeft and turnRight functions when the left and right arrows are pressed.*/
 
 angleMode = "radians";
 
@@ -71,6 +73,14 @@ Car.prototype.checkEdges = function () {
 };
 
 var car = new Car();
+
+keyPressed = function(){
+    if(keyCode === LEFT){
+        car.turnLeft();
+    } else if(keyCode === RIGHT){
+        car.turnRight();
+    }
+};
 
 draw = function() {
     background(102, 209, 104);

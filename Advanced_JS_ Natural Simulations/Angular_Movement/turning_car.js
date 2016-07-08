@@ -2,6 +2,9 @@
 //Step 1: Add keyboard control*
 /*This program displays a car that starts with a constant velocity. In the challenge, you'll get it to turn using the keyboard and point towards the angle of movement. For this step, just implement code that will call the car's currently empty turnLeft and turnRight functions when the left and right arrows are pressed.*/
 
+//Step 2: Make it Turn
+/*Now make those turn methods actually do something. To get the car to turn in a direction, generate a force vector that is angled in that direction, relative to the car's current velocity vector, and apply that force. (Hint: check the PVector documentation!)*/
+
 angleMode = "radians";
 
 var Car = function() {
@@ -26,11 +29,15 @@ Car.prototype.applyForce = function(force) {
 };
 
 Car.prototype.turnLeft = function() {
-    println("turning left!");
+     var force = this.velocity.get();
+     force.rotate(-PI / 2);
+     this.applyForce(force);
 };
 
 Car.prototype.turnRight = function() {
-    println("turning right!");
+     var force = this.velocity.get();
+     force.rotate(PI / 2);
+     this.applyForce(force);
 };
 
 Car.prototype.display = function () {

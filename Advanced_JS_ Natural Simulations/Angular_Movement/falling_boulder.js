@@ -1,5 +1,8 @@
 /*This program starts with a boulder sitting at the top of the mountain. */
 
+/*Step 1: Make it fall*/
+/*Apply a simple gravity-like force that makes it fall down the slope.*/
+
 angleMode = "radians";
 
 var Boulder = function(m, x, y) {
@@ -63,6 +66,7 @@ Boulder.prototype.drawShape = function() {
 };
 
 var boulder = new Boulder(6, 10, 10);
+var gravity = new PVector(0.1,0.1);
 
 draw = function() {
     background(215, 245, 245);
@@ -73,6 +77,7 @@ draw = function() {
     triangle(0, 40, width-40, height, 0, height);
     
     // draw boulder
+    boulder.applyForce(gravity);
     boulder.update();
     boulder.display();
 };

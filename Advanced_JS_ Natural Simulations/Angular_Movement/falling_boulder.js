@@ -3,6 +3,11 @@
 /*Step 1: Make it fall*/
 /*Apply a simple gravity-like force that makes it fall down the slope.*/
 
+/*Step 2: BOULDER ROLL!*/
+/*
+The boulder is rotated each time, but the angle never changes. Compute the angular acceleration based on the normal acceleration, and use that to determine a new angle.
+*/
+
 angleMode = "radians";
 
 var Boulder = function(m, x, y) {
@@ -25,6 +30,11 @@ Boulder.prototype.applyForce = function(force) {
 };
 
 Boulder.prototype.update = function () {
+    this.aAcceleration = this.acceleration.x/10;
+    this.aVelocity += this.aAcceleration;
+    this.aVelocity = constrain(this.aVelocity, -0.1, 0.1);
+    this.angle += this.aVelocity;
+    
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
     

@@ -5,6 +5,12 @@ for the bubbles. But, it's adding a new bubble in every frame, and that seems li
 lot of bubbles to come out of one fish. Can you change it so that it only adds bubble
 every few frames, using the frameCount variable?
 */
+//step two
+/*
+In the ocean, bubbles get bigger as they travel to the surface because there's
+less pressure and the gas expands. Add some logic to the particles so that they
+get bigger as they get closer to the surface.
+*/
 
 
 var Particle = function(position) {
@@ -29,9 +35,12 @@ Particle.prototype.display = function() {
     stroke(255, 255, 255, 100);
     strokeWeight(2);
     fill(255, 255, 255, 50);
+
     //step two
     var radius = map(this.position.y, height/2, 0, 5, 15);
 ellipse(this.position.x, this.position.y, radius, radius);
+   //end step two
+
 };
 
 Particle.prototype.isDead = function() {

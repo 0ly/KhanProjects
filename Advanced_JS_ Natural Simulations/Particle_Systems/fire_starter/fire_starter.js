@@ -3,10 +3,18 @@
 //Step 1: Add an initial systems
 /*However, it'll be a lot easier to see your changes if your program starts off with at least one system, so you don't have to keep clicking. Do that now.*/
 
+//Step 2: Make it look like fire!
+/*This particle system doesn't look like fire - it's colored white and accelerates downwards. Make it look like fire, with the particles flying upward, and their color changing from red to yellow throughout their lifespan. 
+You'll use a new color mode for this step, which makes things easier. The HSB color mode changes what the 3 first parameter of color functions do from (red, green, blue) that you use all the time to (hue, saturation, brightness):
+- Hue: gives colors their colorfulness. 0 for red, 43 for yellow, 85 for green... Test it by yourself!;
+- Saturation: how lively should the color be. Goes from 0 (bland) to 255 (lively);
+- Brightness: how bright should the color be. Goes from 0 (dark) to 255 (bright);*/
+
 angleMode = "radians";
 
 var Particle = function(position) {
-    this.acceleration = new PVector(0, 0.05);
+    //negative y value for fire going upwards effect
+    this.acceleration = new PVector(0, -0.05);
     this.velocity = new PVector(random(-1, 1), random(-1, 0));
     this.position = position.get();
     this.timeToLive = 100;
@@ -24,8 +32,13 @@ Particle.prototype.update = function(){
 };
 
 Particle.prototype.display = function() {
+    
+    //adjustment to make ellipses have the fire look
+    colorMode(HSB);
+    var hue = (100 - this.timeToLive)/2;
+
     noStroke();
-    fill(255, 255, 255, this.timeToLive);
+    fill(hue, 255, 255, this.timeToLive);
     ellipse(this.position.x, this.position.y, 12, 12);
 };
 

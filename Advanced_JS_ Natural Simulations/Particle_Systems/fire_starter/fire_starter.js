@@ -1,5 +1,8 @@
 /*This program creates new particle systems once the user clicks, and you're going to make those systems look like fire in this challenge.*/
 
+//Step 1: Add an initial systems
+/*However, it'll be a lot easier to see your changes if your program starts off with at least one system, so you don't have to keep clicking. Do that now.*/
+
 angleMode = "radians";
 
 var Particle = function(position) {
@@ -65,6 +68,9 @@ ParticleSystem.prototype.run = function() {
 
 // We start off with an empty systems array
 var systems = [];
+
+//Initial System (Step 1)
+systems.push(new ParticleSystem(new PVector(0,0)));
 
 // We fill up the leaves array with positions
 var leaves = [];

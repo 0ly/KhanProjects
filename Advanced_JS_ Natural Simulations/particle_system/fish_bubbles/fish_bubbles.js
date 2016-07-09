@@ -17,6 +17,11 @@ Now that the bubbles are more realistic, make the fish more realistic -
 make it swim across the ocean, starting over on the left side whenever it goes
 beyond the right side of the canvas.
 */
+//step four
+/*
+Now that the fish is swimming, the bubbles should move with it -- as in, new bubbles
+should always appear to comeout of the fish's mouth.
+*/
 
 
 var Particle = function(position) {
@@ -135,6 +140,8 @@ draw = function() {
     background(17, 78, 117);
     fish.swim();//step three
     bubbles.run();
+    //step four
+    bubbles.origin.set(fish.getMouthPosition());
     bubbles.addParticle();
     fish.display();
 };

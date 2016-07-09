@@ -12,11 +12,12 @@ To make this more fun, let's start off the different limbs at different angles. 
 */
 angleMode = "radians";
 
-var Pendulum  = function(origin, armLength) {
-    this.origin = origin;
-    this.armLength = armLength;
-    this.position = new PVector();
-    this.angle = 0;
+//step three add angle
+var Pendulum  = function(origin, armLength, angle) {
+   this.origin = origin;
+   this.armLength = armLength;
+   this.position = new PVector();
+   this.angle = angle;// angle
 
     this.aVelocity = 0.0;
     this.aAcceleration = 0.0;

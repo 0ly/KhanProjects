@@ -3,6 +3,9 @@
 //Step 1: Add a falling leaf
 /*"make it so that clicking somewhere will make a leaf fall from that point"*/
 
+//Step 2: Make the leaves pile up
+/*Right now, your leaves are falling off screen forever, because we didn't give them a lifespan or any stopping mechanism. Since they're leaves, they should probably stop falling once they hit the ground, right? Add conditional logic so that the leaves pile up on the bottom of the screen.*/
+
 
 
 angleMode = "radians";
@@ -91,10 +94,16 @@ mouseClicked = function(){
 draw = function() {
     background(194, 231, 255);
     tree.display();
-    
+
     for(var i = 0; i < leaves.length; i++){
         var leaf = leaves[i];
         leaf.run();
+
+         //logic to make leaves pile to the floor
+         if(leaf.position.y>=height-20) {
+            leaf.velocity.set(0, 0);
+            leaf.acceleration.set(0, 0);
+        }
     }
 };
 

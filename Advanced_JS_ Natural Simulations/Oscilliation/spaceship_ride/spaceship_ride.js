@@ -14,19 +14,38 @@ Okay, now let's really give them a ride - calculate the angular acceleration bas
 
 
 angleMode = "radians";
+
 /*step one*/
 var Spaceship = function() {
 
-
+    this.angles = 0;
+    this.angLevel = 0;
+    
     this.angle = new PVector();
-    this.velocity = new PVector(random(-0.1, 0.1), random(-0.1, 0.1));
+    this.velocity = new PVector(random(-0.05, 0.05), random(-0.05, 0.05));
 
-
-
-this.amplitude = new PVector(random(0, width), random(0, width));
-this.position = new PVector(0, 0);
-/* end step one*/
+    this.amplitude = new PVector(random(0, width), random(0, width));
+    this.position = new PVector(0, 0);
+    /* end step one*/
 };
+
+
+
+
+Spaceship.prototype.oscillate = function() {
+    
+    var angleAccel = dist(this.position.x, this.position.y, 0,0) / 10000;
+    this.angLevel +=angleAccel;
+    this.angLevel = constrain(this.angLevel, 0.01, 0.1);
+    this.angles += this.angLevel;
+
+    this.angle.add(this.velocity);
+    this.position = new PVector(
+                sin(this.angle.x) * this.amplitude.x,
+                sin(this.angle.y) * this.amplitude.y);
+};
+
+
 //step two
 Spaceship.prototype.display = function() {
   pushMatrix();
@@ -44,15 +63,6 @@ popMatrix();
 };
 //end 2
 
-
-Spaceship.prototype.oscillate = function() {
-
-    this.angle.add(this.velocity);
-    this.position.set(
-                sin(this.angle.x) * this.amplitude.x,
-                sin(this.angle.y) * this.amplitude.y);
-};
-
 Spaceship.prototype.display = function() {
     pushMatrix();
     translate(width/2, height/2);
@@ -60,8 +70,12 @@ Spaceship.prototype.display = function() {
     strokeWeight(9);
     line(0, 0, this.position.x, this.position.y);
     imageMode(CENTER);
+    
+    translate(this.position.x, this.position.y);
+    rotate(this.angles);
+    
     image(getImage("space/octopus"),
-        this.position.x, this.position.y,
+        0, 0,
         80, 100);
     popMatrix();
 };

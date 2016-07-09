@@ -6,6 +6,10 @@ In this challenge, you'll make a puppet out of pendulums. We've created all the 
 /*
 The parts of the limbs move independently now - try dragging them and you'll see. What we want instead is for the bottom part of each limb to connect to the top limb, like a joint. That means that for half the pendulums, the origin isn't static - it varies, based on their parent pendulum's position. To make this happen in code, we suggest letting the first argument of Pendulum be either a PVector or another Pendulum, and acting accordingly. But there may be other ways, too. (Note that this looks like what's called a 'double pendulum', but truly simulating a double pendulum requires far more complex equations.)
 */
+/*
+step three
+To make this more fun, let's start off the different limbs at different angles. Currently, every pendulum has the same angle hard-coded in the constructor, so you'll need to both modify the constructor and all of your calls to it.
+*/
 angleMode = "radians";
 
 var Pendulum  = function(origin, armLength) {

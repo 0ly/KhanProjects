@@ -9,6 +9,9 @@
 //Step 3: Show stars and smoke
 /*Now, we want the particle system to emit both smoke and stars, about equally. Use the random probability technique to decide which particle type to add, when addParticle is called.*/
 
+//Step 4: Different sized stars!
+/*Make your star particles more interesting by varying their size- generate a random size for each, and use that to draw the star. Be reasonable now!*/
+
 angleMode = "radians";
 
 
@@ -68,12 +71,14 @@ Smoke.prototype.display = function(){
 };
 
 var Star = function(position){
+    
+    this.size = random(15,25);
     Particle.call(this, position);
 };
 Star.prototype = Object.create(Particle.prototype);
 Star.prototype.constructor = Star;
 Star.prototype.display = function(){
-    image(getImage("cute/Star"), this.position.x, this.position.y, 12, 12);
+    image(getImage("cute/Star"), this.position.x, this.position.y, this.size, this.size);
 };
 
 ParticleSystem.prototype.addParticle = function() {

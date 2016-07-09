@@ -11,6 +11,12 @@ In the ocean, bubbles get bigger as they travel to the surface because there's
 less pressure and the gas expands. Add some logic to the particles so that they
 get bigger as they get closer to the surface.
 */
+//step three
+/*
+Now that the bubbles are more realistic, make the fish more realistic -
+make it swim across the ocean, starting over on the left side whenever it goes
+beyond the right side of the canvas.
+*/
 
 
 var Particle = function(position) {
@@ -84,6 +90,12 @@ var Fish = function(position) {
 };
 
 Fish.prototype.swim = function() {
+ //step three
+this.position.x+= 1.0;
+if(this.position.x>width+100) {
+this.position.x = -60;
+this.flip = !this.flip; }
+//step three
 };
 
 Fish.prototype.display = function() {
@@ -121,8 +133,7 @@ draw = function() {
     }
 
     background(17, 78, 117);
-
-    //fish.swim();
+    fish.swim();//step three
     bubbles.run();
     bubbles.addParticle();
     fish.display();

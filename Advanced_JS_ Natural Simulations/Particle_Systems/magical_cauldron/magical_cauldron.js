@@ -3,6 +3,9 @@
 //Step 1: Add smoke!
 /*Create a Smoke object that inherits from Particle, but looks more like colored smoke.*/
 
+//Step 2: Add stars!
+/*Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
+
 angleMode = "radians";
 
 
@@ -59,6 +62,15 @@ Smoke.prototype.display = function(){
     fill(255, 255, 255, this.timeToLive);
     ellipse(this.position.x, this.position.y, 12, 12);
     
+};
+
+var Star = function(position){
+    Particle.call(this, position);
+};
+Star.prototype = Object.create(Particle.prototype);
+Star.prototype.constructor = Star;
+Star.prototype.display = function(){
+    image(getImage("cute/Star"), this.position.x, this.position.y, this.size, this.size);
 };
 
 ParticleSystem.prototype.addParticle = function() {

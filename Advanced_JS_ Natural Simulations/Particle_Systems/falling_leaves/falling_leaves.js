@@ -1,5 +1,10 @@
 /*One common use of particle systems is to simulate falling leaves. We've drawn a tree in this program and included a leaf-like Particle object in the code, and want you to make it so that clicking somewhere will make a leaf fall from that point.*/
 
+//Step 1: Add a falling leaf
+/*"make it so that clicking somewhere will make a leaf fall from that point"*/
+
+
+
 angleMode = "radians";
 
 var Particle = function(position) {
@@ -79,8 +84,17 @@ Tree.prototype.display = function() {
 var leaves = [];
 var tree = new Tree(new PVector(width/2, 400));
 
+mouseClicked = function(){ 
+   leaves.push(new Particle(new PVector(mouseX, mouseY)));
+};
+
 draw = function() {
     background(194, 231, 255);
     tree.display();
+    
+    for(var i = 0; i < leaves.length; i++){
+        var leaf = leaves[i];
+        leaf.run();
+    }
 };
 

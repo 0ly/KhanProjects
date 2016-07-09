@@ -10,6 +10,9 @@ You'll use a new color mode for this step, which makes things easier. The HSB co
 - Saturation: how lively should the color be. Goes from 0 (bland) to 255 (lively);
 - Brightness: how bright should the color be. Goes from 0 (dark) to 255 (bright);*/
 
+//Step 3: Make lines of fire!
+/*It's pretty neat how you can now create fires when you click. But you know what'd be even cooler? If you can create fires as you drag your mouse, to make lines of fire. Try that now*/
+
 angleMode = "radians";
 
 var Particle = function(position) {
@@ -94,6 +97,12 @@ for (var i = 0; i < 100; i++) {
 mouseClicked = function() {
     systems.push(new ParticleSystem(new PVector(mouseX, mouseY)));
 };
+
+//Create a line of fire when mouse is dragged
+mouseDragged = function(){
+    systems.push(new ParticleSystem(new PVector(mouseX, mouseY)));
+};
+
 
 draw = function() {
     colorMode(RGB);

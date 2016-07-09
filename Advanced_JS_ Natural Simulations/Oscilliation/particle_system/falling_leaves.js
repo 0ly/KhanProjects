@@ -6,24 +6,37 @@ One common use of particle systems is to simulate falling leaves. We've drawn a 
 /*
 Right now, your leaves are falling off screen forever, because we didn't give them a lifespan or any stopping mechanism. Since they're leaves, they should probably stop falling once they hit the ground, right? Add conditional logic so that the leaves pile up on the bottom of the screen.
 */
+//step three
+/*
+Leaves usually spin as they fall. Use the technique from the angular velocity section to make the leaves spin as they fall from the tree (not too fast!).
+*/
 angleMode = "radians";
-
+//step three
 var Particle = function(position) {
     this.acceleration = new PVector(0, 0.05);
     this.velocity = new PVector(random(0, 1), random(0, 0));
     this.position = position;
+    this.angle = 0;
+    this.aVelocity = 0;
+    this.aAcceleration = 0.005;
 };
+
+
 
 Particle.prototype.run = function() {
     this.update();
     this.display();
 };
-
+//step three
 Particle.prototype.update = function(){
+
+
     this.velocity.add(this.acceleration);
     this.position.add(this.velocity);
-};
+    this.aVelocity += this.aAcceleration;
+     this.angle += this.aVelocity;
 
+};
 Particle.prototype.display = function() {
     image(getImage("avatars/leaf-green"), this.position.x, this.position.y, 40, 40);
 };

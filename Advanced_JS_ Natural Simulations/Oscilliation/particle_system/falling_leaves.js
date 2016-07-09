@@ -2,6 +2,10 @@
 /*
 One common use of particle systems is to simulate falling leaves. We've drawn a tree in this program and included a leaf-like Particle object in the code, and want you to make it so that clicking somewhere will make a leaf fall from that point.
 */
+//step two
+/*
+Right now, your leaves are falling off screen forever, because we didn't give them a lifespan or any stopping mechanism. Since they're leaves, they should probably stop falling once they hit the ground, right? Add conditional logic so that the leaves pile up on the bottom of the screen.
+*/
 angleMode = "radians";
 
 var Particle = function(position) {
@@ -96,5 +100,17 @@ draw = function() {
      var leaf = leaves[i];
 
     leaf.run();
+    }
+
+    //step two
+     for ( var i = 0; i < leaves.length; i++) {var leaf = leaves[i];
+
+    if(leaf.position.y > 370) {
+         leaf.acceleration.set (0, 0);
+        leaf.velocity.set(0,0);
+        leaf.aAcceleration = 0;
+        leaf.aVelocity = 0;
+
+      }
     }
 };

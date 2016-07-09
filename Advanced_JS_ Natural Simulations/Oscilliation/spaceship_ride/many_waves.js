@@ -1,3 +1,11 @@
+/*
+step one
+This program defines a Wave object, so that we can create multiples waves with different periods and amplitudes easily. Like we did in our example, display the wave as a series of ellipses moving across the screen.
+*/
+/*
+step two
+Now make, update, and draw another wave with different parameters from the first
+*/
 angleMode = "radians";
 
 var Wave = function(amplitude, period, color) {
@@ -44,11 +52,16 @@ Wave.prototype.draw = function() {
 };
 
 var wave = new Wave(200, 175, color(255, 0, 0, 100));
+//step 2
+var water = new Wave(50, 100, color(125, 128, 219,50));
 
 translate(0, height/2);
 
 draw = function() {
     background(255);
     wave.update();
+    //step 2
     wave.draw();
+    water.update();
+    water.draw();
 };

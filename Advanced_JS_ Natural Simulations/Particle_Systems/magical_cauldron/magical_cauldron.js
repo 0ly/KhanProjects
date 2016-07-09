@@ -6,6 +6,9 @@
 //Step 2: Add stars!
 /*Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
 
+//Step 3: Show stars and smoke
+/*Now, we want the particle system to emit both smoke and stars, about equally. Use the random probability technique to decide which particle type to add, when addParticle is called.*/
+
 angleMode = "radians";
 
 
@@ -70,14 +73,20 @@ var Star = function(position){
 Star.prototype = Object.create(Particle.prototype);
 Star.prototype.constructor = Star;
 Star.prototype.display = function(){
-    image(getImage("cute/Star"), this.position.x, this.position.y, this.size, this.size);
+    image(getImage("cute/Star"), this.position.x, this.position.y, 12, 12);
 };
 
 ParticleSystem.prototype.addParticle = function() {
+    var r = random(0,1);
+    
     this.particles.push(new Particle(this.origin));
+    
+    if (r > 0.5) {
+        this.particles.push(new Star(this.origin));
+    } else {
+        this.particles.push(new Smoke(this.origin));
+    }
     this.particles.push(new Smoke(this.origin));
-   
-  
 };
 
 ParticleSystem.prototype.run = function(){

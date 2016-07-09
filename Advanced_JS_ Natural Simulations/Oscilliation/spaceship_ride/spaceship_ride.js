@@ -1,3 +1,18 @@
+/*
+step one
+This carnival ride is really a bunch of oscillating spaceships. We're going to make it a more thrilling ride. Start by speeding up the oscillations.
+*/
+/*
+step two
+- Draw the images at the origin so that rotating them doesn't change their position;
+- Translate them to the right position;
+- Rotate them so they they look... uhm... rotated;
+*/
+/* step three
+Okay, now let's really give them a ride - calculate the angular acceleration based on how far away each ship is from the center, and rotate just the ship based on that. That means that your ship will need to keep track of its angular velocity and current angle, and each call to oscillate() will add to those values based on the angular acceleration that you calculate.
+*/
+
+
 angleMode = "radians";
 /*step one*/
 var Spaceship = function() {

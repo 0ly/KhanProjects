@@ -1,6 +1,11 @@
 /*This program animates a standard particle system emerging out of a cauldron. We want different sorts of particles to come out of the cauldron, though, starting with a smokey particle. */
 
+//Step 1: Add smoke!
+/*Create a Smoke object that inherits from Particle, but looks more like colored smoke.*/
+
 angleMode = "radians";
+
+
 
 var Particle = function(position) {
     this.acceleration = new PVector(0, -0.05);
@@ -39,9 +44,28 @@ var ParticleSystem = function(position) {
     this.origin = position.get();
     this.particles = [];
 };
+    
+    var Smoke = function(position){
+   
+    Particle.call(this, position);
+};
+
+Smoke.prototype = Object.create(Particle.prototype);
+Smoke.prototype.constructor = Smoke;
+
+Smoke.prototype.display = function(){
+    
+    noStroke();
+    fill(255, 255, 255, this.timeToLive);
+    ellipse(this.position.x, this.position.y, 12, 12);
+    
+};
 
 ParticleSystem.prototype.addParticle = function() {
     this.particles.push(new Particle(this.origin));
+    this.particles.push(new Smoke(this.origin));
+   
+  
 };
 
 ParticleSystem.prototype.run = function(){
@@ -55,6 +79,8 @@ ParticleSystem.prototype.run = function(){
 };
 
 var particleSystem = new ParticleSystem(new PVector(width/2, 280));
+
+
 
 draw = function() {
     background(72, 7, 105);

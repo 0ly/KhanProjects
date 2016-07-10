@@ -1,9 +1,14 @@
 /*This program uses a particle system and a repeller to simulate a river flowing around a single rock.*/
 
+//Step 1: More Realistic Forces
+/*To start off with, make it a bit more realistic by decreasing the force of the rock and the initial vertical velocity of the water particles. They seem to be moving a bit too much now!*/
+
+
+
 angleMode = "radians";
 
 var Repeller = function(x, y) {
-    this.power = 500;
+    this.power = 200;
     this.position = new PVector(x, y);
 };
 
@@ -23,7 +28,7 @@ Repeller.prototype.calculateRepelForce = function(p) {
 
 var Particle = function(position) {
     this.acceleration = new PVector(0, 0);
-    this.velocity = new PVector(random(0, 1), random(-1, 1));
+    this.velocity = new PVector(random(0, 1), random(-0.1, 0.1));
     this.position = position.get();
     this.timeToLive = 255.0;
     this.mass = 10;
@@ -106,6 +111,19 @@ var pressure = new PVector(0.4, 0);
 var particleSystem = new ParticleSystem(new PVector(0, height/2), 200);
 var repeller = new Repeller(width/2, height/2);
 
+var repellers = [];
+//step two
+for(var i = 0; i < 3; i++) {
+ 
+    var rock = new Repeller(random(1,width), random(100, 300));
+    repellers.push(rock);
+}
+//step two
+mouseClicked = function(){
+    var rep = new Repeller(mouseX,mouseY);
+    repellers.push(rep);
+};
+
 draw = function() {
 
     // Draw ground
@@ -121,7 +139,12 @@ draw = function() {
     
     // Update particle system
     particleSystem.applyForce(pressure);
-    particleSystem.applyRepeller(repeller);
+    
+    for(var i = 0; i < repellers.length; i++){
+        particleSystem.applyRepeller(repellers[i]);
+        repellers[i].display();
+    }
+    
     repeller.display();
       
     particleSystem.addParticle();

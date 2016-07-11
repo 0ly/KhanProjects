@@ -4,7 +4,7 @@
 /*Create a Smoke object that inherits from Particle, but looks more like colored smoke.*/
 
 //Step 2: Add stars!
-/*Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
+/* Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
 
 //Step 3: Show stars and smoke
 /*Now, we want the particle system to emit both smoke and stars, about equally. Use the random probability technique to decide which particle type to add, when addParticle is called.*/

@@ -8,6 +8,20 @@ We've provided you with, drawScene1, a scene drawing function for the first scen
 - If the first scene is displayed and you click the mouse, it will display the last scene
 - If the last scene is displayed and you click the mouse, it will display the first scene*/
 
+//Step 2: Add the rest of the story
+
+/*Add the second, third and fourth scenes to fill in the rest of the story.
+
+Each scene should:
+- update the scene index, currentScene, to the scene number
+- draw a unique background
+- display the image of Leafers
+- have text describing the scene
+
+In the second scene Leafers should be a seedling, in the third scene Leafers should be a sapling, and in the fourth scene Leafers should be a tree.
+
+Don't worry about adding logic to mouseClicked to display these scenes in this step. You will do that next step.*/
+
 fill(0, 0, 0);
 textSize(20);
 textAlign(CENTER);
@@ -26,6 +40,26 @@ var drawScene1 =function(){
     background(200, 175, 175);
     image(seed, 50,200);
     text("Leafers started out as a seed",200,50);
+};
+var drawScene2 =function(){
+    currentScene = 2;
+    background(189, 53, 53);
+    image(seedling, 50,200);
+    text("Leafers then became a seedling",200,50);
+};
+
+var drawScene3 =function(){
+    currentScene = 3;
+    background(47, 158, 47);
+    image(sapling, 50,200);
+    text("From seedling, Leafers promptly grew into a sapling",200,50);
+};
+
+var drawScene4 =function(){
+    currentScene = 4;
+    background(166, 42, 166);
+    image(tree, 50,200);
+    text("He wouldnt stay sapling for long, he eventually became a tree!",200,50);
 };
 
 var drawScene5 =function(){

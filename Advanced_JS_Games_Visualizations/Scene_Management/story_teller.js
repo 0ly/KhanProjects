@@ -22,6 +22,12 @@ In the second scene Leafers should be a seedling, in the third scene Leafers sho
 
 Don't worry about adding logic to mouseClicked to display these scenes in this step. You will do that next step.*/
 
+//Step 3: Add logic to tell the whole story
+
+/*Modify the program so that clicking on the mouse shows the scenes in order.
+Clicking the mouse on the last scene should still make the first scene appear.*/
+
+
 fill(0, 0, 0);
 textSize(20);
 textAlign(CENTER);
@@ -52,14 +58,14 @@ var drawScene3 =function(){
     currentScene = 3;
     background(47, 158, 47);
     image(sapling, 50,200);
-    text("From seedling, Leafers promptly grew into a sapling",200,50);
+    text("From seedling,\nLeafers promptly grew into a sapling",200,50);
 };
 
 var drawScene4 =function(){
     currentScene = 4;
     background(166, 42, 166);
     image(tree, 50,200);
-    text("He wouldnt stay sapling for long, he eventually became a tree!",200,50);
+    text("He wouldnt stay sapling for long,\n he eventually became a tree!",200,50);
 };
 
 var drawScene5 =function(){
@@ -74,9 +80,19 @@ drawScene1();
 mouseClicked=function(){
     
     if(currentScene === 1 ){
+        drawScene2();
+    }
+    else if(currentScene === 2){
+        drawScene3();
+    }
+     else if(currentScene === 3){
+        drawScene4();
+    }
+     else if(currentScene === 4){
         drawScene5();
-    }else{
+    }
+     else if(currentScene === 5){
         drawScene1();
-    } 
+    }
 };
 

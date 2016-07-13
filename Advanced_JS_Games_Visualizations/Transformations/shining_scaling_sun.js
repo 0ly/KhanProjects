@@ -5,6 +5,13 @@
 
 The drawSun() function should draw the entire sun, including both the circle (for the center of the sun) and the sun rays, so make sure that you put your for loop inside the drawSun() function.*/
 
+//Step 2: Draw a cloud
+
+/*Now that you have drawn the sun, you will need some clouds to provide some shade!
+
+Draw at least one cloud using drawCloud(). Make sure to move it around with translate() first!*/
+
+
 angleMode = "degrees";
 var backgroundColor = color(135, 206, 250);
 var sunColor = color(255, 255, 0);
@@ -49,4 +56,8 @@ background(backgroundColor);
 drawSun();
 
 //draw clouds
+pushMatrix();
+translate(100,50);
+drawCloud();
+popMatrix();
 

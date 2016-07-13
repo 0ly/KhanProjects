@@ -9,6 +9,11 @@
 //Step 2: Move Rock #2
 /*Use the translate, pushMatrix, and popMatrix commands to move rock #2 to the left, to block the path of the bug in the upper right.*/
 
+//Step 3: Move Rock #3
+/*Use the translate, pushMatrix, and popMatrix commands to move rock #3 up, to block the path of the bug in the lower left.*/
+
+
+
 
 var drawLevel = function(){
     var babyWinston =getImage("creatures/BabyWinston");
@@ -120,7 +125,10 @@ drawRock2();
 popMatrix();
 
 // Draw Rock #3
+pushMatrix();
+translate(0,-100);
 drawRock3();
+popMatrix();
 
 // Draw Rock #4
 drawRock4();

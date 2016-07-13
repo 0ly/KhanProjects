@@ -12,6 +12,9 @@
 //Step 3: Move Rock #3
 /*Use the translate, pushMatrix, and popMatrix commands to move rock #3 up, to block the path of the bug in the lower left.*/
 
+//Step 4: Move Rock #4
+/*Use the translate, pushMatrix, and popMatrix commands to move rock #4 down and to the right, to simultaneously block both of the paths for the bug in the lower right corner.*/
+
 
 
 
@@ -131,5 +134,8 @@ drawRock3();
 popMatrix();
 
 // Draw Rock #4
+pushMatrix();
+translate(50,100);
 drawRock4();
+popMatrix();
 

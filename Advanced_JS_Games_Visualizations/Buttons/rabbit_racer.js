@@ -8,6 +8,14 @@ The player's rabbit will be controlled by a button.
 - create a button, btn1, directly beneath the rightmost rabbit
 - make sure the button is drawn on the screen*/
 
+//Step 2: Configuring the button
+/*Now customize your button:
+- change the width and height (make the button a reasonable size)
+- change the color
+- change the label
+
+Notice that we didn't have to set these properties in the config object before (these properties were optional).*/
+
 /*************
 *OBJECT TYPES
 **************/
@@ -141,7 +149,11 @@ var rab = rabbits[rabbits.length - 1];
 var btn1 = new Button({
   
     x: 350,
-    y: 350
+    y: 350,
+    width: 50,
+    height: 35,
+    color: color(217, 255, 0),
+    label: "GO!"
 
     /*
     x: rab.x,

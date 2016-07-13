@@ -2,6 +2,10 @@
 /*Your task is to save baby Winston from the enemy bugs by blocking their paths with rocks.
 */
 
+//Step 1: Move Rock #1
+
+/*Use the translate, pushMatrix, and popMatrix commands to move rock #1 to the right, to block the path of the bug in the upper left.*/
+
 
 var drawLevel = function(){
     var babyWinston =getImage("creatures/BabyWinston");
@@ -101,7 +105,10 @@ var drawRock4 = function(){
 drawLevel();
     
 // Draw Rock #1
+pushMatrix();
+translate(50,0);
 drawRock1();
+popMatrix();
 
 // Draw Rock #2
 drawRock2();

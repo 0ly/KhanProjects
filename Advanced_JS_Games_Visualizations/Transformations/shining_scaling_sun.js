@@ -6,11 +6,24 @@
 The drawSun() function should draw the entire sun, including both the circle (for the center of the sun) and the sun rays, so make sure that you put your for loop inside the drawSun() function.*/
 
 //Step 2: Draw a cloud
-
 /*Now that you have drawn the sun, you will need some clouds to provide some shade!
 
-Draw at least one cloud using drawCloud(). Make sure to move it around with translate() first!*/
+Draw at least one cloud using drawCloud(). Make sure to move it around with translate() first!
+*/
 
+//Step 3: Scale the sun
+/*Hmm, the sun is a little too small! Use scaling to make the sun larger.
+
+To complete this step you will need to:
+- Use the variable scaleF to hold your scaling factor (The amount your sun will be scaled by).
+- Add a scale() command before your call to drawSun() to make the sun larger
+- Use a translate() command to keep the sun centered in the middle of the canvas. The center of your sun should remain in the middle of the canvas even if you change the value of scaleF.
+
+Figuring out the correct expressions to use in your translate() command can be challenging. It may help to break your expression into two parts:
+- One part to translate the middle of the scaled version of the sun back to (0,0). Try thinking about where a point at (200,200) would be drawn after it was scaled by scaleF.
+- One part to translate the sun from (0,0) to the middle of the canvas
+
+*/
 
 angleMode = "degrees";
 var backgroundColor = color(135, 206, 250);
@@ -53,7 +66,12 @@ var drawSun = function() {
 background(backgroundColor);
 
 //draw sun
+var scaleF = 2.0;
+pushMatrix();
+translate(200 - 200 * scaleF, 200 - 200 * scaleF);
+scale(scaleF);
 drawSun();
+popMatrix();
 
 //draw clouds
 pushMatrix();

@@ -16,6 +16,12 @@ The player's rabbit will be controlled by a button.
 
 Notice that we didn't have to set these properties in the config object before (these properties were optional).*/
 
+
+//Step 3: Making the button functional
+/*Now let's make the button actually do something!
+
+Change the onClick method for your button, so that it calls a method on the player's rabbit (the last rabbit in the rabbits array) to make it hop forward.*/
+
 /*************
 *OBJECT TYPES
 **************/
@@ -153,14 +159,17 @@ var btn1 = new Button({
     width: 50,
     height: 35,
     color: color(217, 255, 0),
-    label: "GO!"
+    label: "GO!",
+    onClick: function(){
+        rabbits[rabbits.length -1].hop();
+    }
 
     /*
     x: rab.x,
     y: rab.y + 50
     */
 
-    });
+});
 
 draw = function() {
     background(98, 122, 54);

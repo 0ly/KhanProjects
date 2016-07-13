@@ -3,6 +3,19 @@
 The player's rabbit will be controlled by a button.
 */
 
+/*Step 1: Creating a button*/
+/*Your task, for this step, is to:
+- create a button, btn1, directly beneath the rightmost rabbit
+- make sure the button is drawn on the screen*/
+
+/*************
+*OBJECT TYPES
+**************/
+
+/******************
+*Button Object Type
+*******************/
+
 /*************
 *OBJECT TYPES
 **************/
@@ -117,8 +130,25 @@ for (var i = 0; i < 4; i++) {
     rabbits.push(new Rabbit(50 + 100 * i, 300));
 }
 
+/*
+Attempted to just use the final element of the array, but the checker wanted hard coded values, rather than rab.x or rab.y + 50
+
+var rab = rabbits[rabbits.length - 1];
+
+*/
+
 //create button
-var btn1;
+var btn1 = new Button({
+  
+    x: 350,
+    y: 350
+
+    /*
+    x: rab.x,
+    y: rab.y + 50
+    */
+
+    });
 
 draw = function() {
     background(98, 122, 54);
@@ -148,8 +178,7 @@ draw = function() {
     }
     
     //Draw the button
-
-    
+    btn1.draw();
 };
 
 mouseClicked = function() {

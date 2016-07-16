@@ -7,9 +7,9 @@ Add multiple levels, with increasing levels of difficulty (like new types of obs
 Add a cooler win state.*/
 
 //TODO: Implement a better end of level action
-    //Check if last stick has been drawn and is off screen
+    //*Done*Check if last stick has been drawn and is off screen 
     //If so
-        // Stop scrolling movement
+        //*Done* Stop scrolling movement
         //Check score
             //If stick count reached winning criteria
                 //Display winning message
@@ -74,6 +74,8 @@ var grassXs = [];
 for (var i = 0; i < 25; i++) { 
     grassXs.push(i*20);
 }
+//bool to track level state
+var challengeFinish = false;
 
 draw = function() {
     
@@ -85,9 +87,13 @@ draw = function() {
     
     for (var i = 0; i < grassXs.length; i++) {
         image(getImage("cute/GrassBlock"), grassXs[i], height*0.85, 20, 20);
-        grassXs[i] -= 1;
-        if (grassXs[i] <= -20) {
-            grassXs[i] = width;
+        
+        //scroll grass as long as the level/challenge is not finished
+        if(!challengeFinish){
+            grassXs[i] -= 1;
+            if (grassXs[i] <= -20) {
+                grassXs[i] = width;
+             }
         }
     }
     
@@ -96,9 +102,16 @@ draw = function() {
         beaver.checkForStickGrab(sticks[i]);
         sticks[i].x -= 1;
     }
-    
+    //end of level check
+    if(sticks[sticks.length - 1].x < -20){
+        challengeFinish = true;
+    }
+        
     textSize(18);
     text("Score: " + beaver.sticks, 20, 30);
+    
+    //dev only
+    //text("challenge bool: " + challengeFinish, 116, 30);
     
     if (beaver.sticks/sticks.length >= 0.95) {
         textSize(36);

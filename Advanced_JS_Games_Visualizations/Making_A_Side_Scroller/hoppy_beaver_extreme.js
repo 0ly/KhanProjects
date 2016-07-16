@@ -89,7 +89,7 @@ draw = function() {
         image(getImage("cute/GrassBlock"), grassXs[i], height*0.85, 20, 20);
         
         //scroll grass as long as the level/challenge is not finished
-        if(!challengeFinish){
+        if(!challengeFinish){  
             grassXs[i] -= 1;
             if (grassXs[i] <= -20) {
                 grassXs[i] = width;
@@ -105,18 +105,22 @@ draw = function() {
     //end of level check
     if(sticks[sticks.length - 1].x < -20){
         challengeFinish = true;
-    }
+        textSize(36);
         
+        //check score and display appropriate message
+        if (beaver.sticks/sticks.length >= 0.95) {
+            text("YOU WIN!!!!", 100, 200);
+        }else{
+            text("YOU LOSE!!!!", 100, 200);
+        }
+    }
+    
+    //Displaying score    
     textSize(18);
     text("Score: " + beaver.sticks, 20, 30);
     
     //dev only
     //text("challenge bool: " + challengeFinish, 116, 30);
-    
-    if (beaver.sticks/sticks.length >= 0.95) {
-        textSize(36);
-        text("YOU WIN!!!!", 100, 200);
-    }
     
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();

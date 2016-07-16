@@ -7,6 +7,13 @@
 - When the DOWN arrow key is pressed, the paddle on the left moves down
 - When no key is pressed, the paddle on the left does not move*/
 
+//Step 2: Keeping things in bound
+/*In this step, you will make sure that the paddle for Player 1 stays on the canvas.
+
+Use the constrain() function to keep the center of the left paddle between the top and bottom of the canvas.
+
+It is okay and expected that part of the left paddle will be able to go off the canvas when the paddle approaches the top and bottom edges of the canvas. This is okay as long as the center of the paddle still remains on the canvas.*/
+
 
 var player1Y = height/2;
 var player2Y = height/2;
@@ -134,6 +141,7 @@ var movePlayerDown = function() {
 
 var drawPlayers = function() {
     //Constrain the player movement
+     player1Y = constrain(player1Y, 0, height);
     
     
     rectMode(CENTER);
@@ -149,7 +157,7 @@ draw = function() {
         if(keyCode === UP){
             movePlayerUp();
         }
-        
+
         else if(keyCode=== DOWN){
             movePlayerDown();
         }

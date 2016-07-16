@@ -1,6 +1,13 @@
 /*This challenge is based on the classic computer game Pong (a table tennis simulator). You will program the paddle for Player 1 (the paddle on the left) to respond to the keyboard.
 */
 
+//Step 1: Creating a movable player
+/*For this step, add logic to the draw() function so that:
+- When the UP arrow key is pressed, the paddle on the left moves up
+- When the DOWN arrow key is pressed, the paddle on the left moves down
+- When no key is pressed, the paddle on the left does not move*/
+
+
 var player1Y = height/2;
 var player2Y = height/2;
 var player1Score = 0;
@@ -137,6 +144,16 @@ var drawPlayers = function() {
 
 draw = function() {
     //Control Player 1
+    if(keyIsPressed){
+
+        if(keyCode === UP){
+            movePlayerUp();
+        }
+        
+        else if(keyCode=== DOWN){
+            movePlayerDown();
+        }
+    }
 
     //Draw the environment
     background(0, 0, 0);

@@ -6,6 +6,21 @@ Add NPCs- characters that attack the beaver, and have programmatically controlle
 Add multiple levels, with increasing levels of difficulty (like new types of obstacles).
 Add a cooler win state.*/
 
+//TODO: Implement a better end of level action
+    //Check if last stick has been drawn and is off screen
+    //If so
+        // Stop scrolling movement
+        //Check score
+            //If stick count reached winning criteria
+                //Display winning message
+                //add an animation or some other effect (ex, fireworks in the background or make hoppy hop)
+                //add button to restart game
+            //else
+                //Display losing message
+                //add an animation or some other effect (ex, darken background, make a sad hoppy?)
+                //add button to restart game
+       
+
 var Beaver = function(x, y) {
     this.x = x;
     this.y = y;

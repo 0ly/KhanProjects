@@ -12,6 +12,17 @@
 - SYMBOLS for the symbols assigned to each player. For this challenge, the first symbol in the array should be the symbol for the player who moves first.
 - playerTurn to keep track of whose turn it is. It should hold the index for the symbol in the SYMBOLS array for whose turn it is.*/
 
+//Step 2: Detecting mouse clicks
+/*For this step of the challenge you will complete Tile's handleMouseClick method.
+
+The handleMouseClick method has two parameters: x and y which represent the coordinates of where the user clicked the mouse. When a user clicks inside a tile, that tile's handleMouseClick method should call that tile's onClick method.
+
+To check if the mouse click is inside of the tile, you will need an if statement that checks if:
+- the mouse click is on, or right of, the left edge of the tile
+- the mouse click is on, or left of, the right edge of the tile
+- the mouse click is on, or below, the upper edge of the tile
+- the mouse click is on, or above, the lower edge of the tile */
+
 var playerTurn = 0;
 var NUM_COLS = 3;
 var NUM_ROWS = 3;
@@ -53,7 +64,12 @@ Tile.prototype.onClick = function() {
 };
 
 Tile.prototype.handleMouseClick = function(x, y) {
-    // Check for mouse clicks inside the tile
+     // Check for mouse clicks inside the tile
+    if( x >= this.x && x <= this.x + this.size &&
+        y >= this.y && y <=this.y  + this.size )
+    {
+        this.onClick();
+    }
 };
 
 for (var i = 0; i < NUM_COLS; i++) {

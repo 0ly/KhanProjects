@@ -10,23 +10,31 @@ Implement a two-player mode - either where the second player is programmatically
 
 //Modfied with highlight effect on tiles
 
+//Modified to change tile color when the mouse if hovered over them
+
 var Tile = function(x, y, face) {
     this.x = x;
     this.y = y;
     this.face = face;
     this.width = 70;
+    
+    //added the following properties for highlighting functionality
+    this.defaultColor = color(214, 247, 202);
+    this.highlightColor = color(235, 89, 136);
 };
 
-Tile.prototype.drawFaceDown = function() {
-    fill(214, 247, 202);
+//added a parameter to the function to be used for highlighting when mouse hovers over the tile
+Tile.prototype.drawFaceDown = function(highlight) {
+    fill(highlight || this.defaultColor);
     strokeWeight(2);
     rect(this.x, this.y, this.width, this.width, 10);
     image(getImage("avatars/leaf-green"), this.x, this.y, this.width, this.width);
     this.isFaceUp = false;
 };
 
+//modfied to use highlight color for faceup tiles
 Tile.prototype.drawFaceUp = function() {
-    fill(214, 247, 202);
+    fill(this.highlightColor);
     strokeWeight(2);
     rect(this.x, this.y, this.width, this.width, 10);
     image(this.face, this.x, this.y, this.width, this.width);
@@ -112,6 +120,7 @@ mouseClicked = function() {
             } 
         }
     }
+    
     var foundAllMatches = true;
     for (var i = 0; i < tiles.length; i++) {
         foundAllMatches = foundAllMatches && tiles[i].isMatch;
@@ -123,6 +132,22 @@ mouseClicked = function() {
     }
 };
 
+//when mouse is moved, check the tiles and if the tile is under the mouse and not flipped up, redraw it with highlight color, else redraw it as normal.
+mouseMoved = function(){
+    for (var i = 0; i < tiles.length; i++) {
+        if (tiles[i].isUnderMouse(mouseX, mouseY)) {
+            
+            if (flippedTiles.length < 2 && !tiles[i].isFaceUp){
+                tiles[i].drawFaceDown(tiles[i].highlightColor);
+            }
+        }else{
+            if (flippedTiles.length < 2 && !tiles[i].isFaceUp){
+                tiles[i].drawFaceDown();
+            }
+        }
+    }
+};
+    
 draw = function() {
     if (delayStartFC && (frameCount - delayStartFC) > 30) {
         for (var i = 0; i < tiles.length; i++) {
@@ -135,3 +160,10 @@ draw = function() {
         noLoop();
     }
 };
+
+//just for title
+    fill(214, 247, 202);
+    rect(108,4,212,30);
+    fill(0, 0, 0);
+    textSize(22);
+    text("Color changing tiles", 116,25);

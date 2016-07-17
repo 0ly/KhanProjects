@@ -19,13 +19,19 @@ Add a cooler win state.*/
                 //Display losing message
                 //add an animation or some other effect (ex, darken background, make a sad hoppy?)
                 //add button to restart game
-       
+/*                
+TODO: Make the game more difficult
+    
+    -*DONE*Game speed increases as sticks are collected
+
+*/     
 
 var Beaver = function(x, y) {
     this.x = x;
     this.y = y;
     this.img = getImage("creatures/Hopper-Happy");
     this.sticks = 0;
+    this.difficulty = 1;
 };
 
 Beaver.prototype.draw = function() {
@@ -39,16 +45,25 @@ Beaver.prototype.hop = function() {
     this.y -= 5;
 };
 
+/* For future implementation
+Beaver.prototype.celebrate = function() {
+   //beaver jumping up and down login here
+};
+*/
+
 Beaver.prototype.fall = function() {
     this.img = getImage("creatures/Hopper-Happy");
     this.y += 5;
 };
 
+//Point accumulation && difficulty adjustment
 Beaver.prototype.checkForStickGrab = function(stick) {
     if ((stick.x >= this.x && stick.x <= (this.x + 40)) &&
         (stick.y >= this.y && stick.y <= (this.y + 40))) {
         stick.y = -400;
         this.sticks++;
+        //increases difficulty
+        this.difficulty +=0.3;
     }
 };
 
@@ -97,10 +112,12 @@ draw = function() {
         }
     }
     
+
     for (var i = 0; i < sticks.length; i++) {
         sticks[i].draw();
         beaver.checkForStickGrab(sticks[i]);
-        sticks[i].x -= 1;
+        //rate at which the sticks scroll based
+        sticks[i].x -= beaver.difficulty;
     }
     //end of level check
     if(sticks[sticks.length - 1].x < -20){
@@ -108,7 +125,7 @@ draw = function() {
         textSize(36);
         
         //check score and display appropriate message
-        if (beaver.sticks/sticks.length >= 0.95) {
+        if (beaver.sticks/sticks.length >= 0.50) {
             text("YOU WIN!!!!", 100, 200);
         }else{
             text("YOU LOSE!!!!", 100, 200);
@@ -119,14 +136,13 @@ draw = function() {
     textSize(18);
     text("Score: " + beaver.sticks, 20, 30);
     
-    //dev only
-    //text("challenge bool: " + challengeFinish, 116, 30);
-    
+    //player movement
     if (keyIsPressed && keyCode === 0) {
         beaver.hop();
     } else {
         beaver.fall();
     }
+    
     beaver.draw();
 };
 

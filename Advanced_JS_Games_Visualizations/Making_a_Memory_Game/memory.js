@@ -8,6 +8,8 @@ Give the player an option to choose their board size.
 Implement a two-player mode - either where the second player is programmatically controlled (the program randomly or smartly picking tiles), or manually controlled (if there are two players in front of same computer).
 */
 
+//Modfied with highlight effect on tiles
+
 var Tile = function(x, y, face) {
     this.x = x;
     this.y = y;
@@ -91,17 +93,6 @@ for (var i = 0; i < tiles.length; i++) {
 var flippedTiles = [];
 var delayStartFC = null;
 var numTries = 0;
-
-mouseOver = function(){
-    for (var i = 0; i < tiles.length; i++) {
-        if (tiles[i].isUnderMouse(mouseX, mouseY)) {
-            if (flippedTiles.length < 2 && !tiles[i].isFaceUp){
-            
-            }
-        }
-    }
-    
-};
 
 mouseClicked = function() {
     for (var i = 0; i < tiles.length; i++) {

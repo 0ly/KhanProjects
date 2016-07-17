@@ -23,6 +23,16 @@ To check if the mouse click is inside of the tile, you will need an if statement
 - the mouse click is on, or below, the upper edge of the tile
 - the mouse click is on, or above, the lower edge of the tile */
 
+
+//Step 3: Playing the game
+/*For this step of the challenge you will complete Tile's onClick method which will implement a major part of the logic for the game.
+
+For empty tiles the onClick method should perform the following:
+- Change the tile's label to match the symbol of the player who currently has the turn.
+- Make it the next player's turn.
+
+For tiles that are not empty the onClick method shouldn't do anything (It should just ignore the invalid move).*/
+
 var playerTurn = 0;
 var NUM_COLS = 3;
 var NUM_ROWS = 3;
@@ -57,10 +67,17 @@ Tile.prototype.empty = function() {
 
 Tile.prototype.onClick = function() {
     // If the tile is not empty, exit the function
-    
+    if(!this.empty()){
+        return;
+    }
     // Put the player's symbol on the tile
+    this.label = SYMBOLS[playerTurn];
+    playerTurn++;
     
     // Change the turn
+    if(playerTurn >= SYMBOLS.length){
+        playerTurn = 0;
+    }
 };
 
 Tile.prototype.handleMouseClick = function(x, y) {

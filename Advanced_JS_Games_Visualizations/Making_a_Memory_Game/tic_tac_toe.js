@@ -5,10 +5,17 @@
 - If a player has three of their symbol in a row, column or diagonal, they win the game.
 - If no empty squares remain, and no player has won, then the game is declared a tie.*/
 
-var playerTurn;
-var NUM_COLS;
-var NUM_ROWS;
-var SYMBOLS;
+
+//Step 1: Creating the game board
+/*For this step, you will need to create and assign values to the following variables:
+- NUM_ROWS and NUM_COLS for the number of rows and columns of tiles required to represent the grid of squares.
+- SYMBOLS for the symbols assigned to each player. For this challenge, the first symbol in the array should be the symbol for the player who moves first.
+- playerTurn to keep track of whose turn it is. It should hold the index for the symbol in the SYMBOLS array for whose turn it is.*/
+
+var playerTurn = 0;
+var NUM_COLS = 3;
+var NUM_ROWS = 3;
+var SYMBOLS = ["X", "O"];
 
 var tiles = [];
 

@@ -22,3 +22,80 @@ In the second scene Leafers should be a seedling, in the third scene Leafers sho
 
 Don't worry about adding logic to mouseClicked to display these scenes in this step. You will do that next step.
 */
+//step five
+/*
+Modify the program so that clicking on the mouse shows the scenes in order.
+
+Clicking the mouse on the last scene should still make the first scene appear.
+*/
+fill(0, 0, 0);
+textSize(20);
+textAlign(CENTER);
+
+//images of Leafers
+var seed= getImage("avatars/leafers-seed");
+var seedling= getImage("avatars/leafers-seedling");
+var sapling= getImage("avatars/leafers-sapling");
+var tree= getImage("avatars/leafers-tree");
+var ultimate = getImage("avatars/leafers-ultimate");
+
+var currentScene;
+//step one
+var drawScene1 =function(){
+    currentScene = 1;
+    background(200, 175, 175);
+    image(seed, 50,200);
+    text("Leafers started out as a seed",200,50);
+};
+//step two
+var drawScene2 = function() {
+    currentScene = 2;
+    background(171, 131, 131);
+    image(seedling,300,60);
+    text('Then turn into a seedling',200, 50);
+
+};
+//step three
+var drawScene3 = function() {
+    currentScene = 3;
+    background(184, 116, 116);
+    image(sapling,300,60);
+    text('Then grow into a sapling',200, 50);
+};
+//step four
+var drawScene4 = function() {
+    currentScene = 4;
+    background(168, 92, 92);
+    image(tree,300,60);
+    text('Then mature into a tree',200, 50);
+};
+// step one
+var drawScene5 =function(){
+    currentScene = 5;
+    background(105, 105, 156);
+    image(ultimate, 200,200);
+    text("In the end, Leafers became Ultimate Leafers",200,50);
+};
+
+drawScene1();
+
+mouseClicked=function(){
+    //step one
+    if (currentScene === 1) {
+        drawScene2();
+    }
+    else if(currentScene === 2) {
+        drawScene3();
+    }
+    else if(currentScene === 3) {
+        drawScene4();
+    }
+    else if(currentScene === 4) {
+        drawScene5();
+    }
+    else if(currentScene === 5) {
+        drawScene1();
+    }
+};
+
+

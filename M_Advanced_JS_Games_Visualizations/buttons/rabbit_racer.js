@@ -8,3 +8,12 @@ Your task, for this step, is to:
 - create a button, btn1, directly beneath the rightmost rabbit
 - make sure the button is drawn on the screen
 */
+//step two
+/*
+Now customize your button:
+- change the width and height (make the button a reasonable size)
+- change the color
+- change the label
+
+Notice that we didn't have to set these properties in the config object before (these properties were optional).
+*/

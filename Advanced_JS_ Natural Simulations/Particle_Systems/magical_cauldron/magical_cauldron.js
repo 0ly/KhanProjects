@@ -4,7 +4,7 @@
 /*Create a Smoke object that inherits from Particle, but looks more like colored smoke.*/
 
 //Step 2: Add stars!
-/*Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
+/* Now, make a new kind of particle come out of the cauldron - stars! Like you did for the Smoke, you should inherit from the Particle object, but change the display. You can just use the star image from our image library, to avoid having to draw a star yourself.*/
 
 //Step 3: Show stars and smoke
 /*Now, we want the particle system to emit both smoke and stars, about equally. Use the random probability technique to decide which particle type to add, when addParticle is called.*/
@@ -53,9 +53,9 @@ var ParticleSystem = function(position) {
     this.origin = position.get();
     this.particles = [];
 };
-    
+
     var Smoke = function(position){
-   
+
     Particle.call(this, position);
 };
 
@@ -63,15 +63,15 @@ Smoke.prototype = Object.create(Particle.prototype);
 Smoke.prototype.constructor = Smoke;
 
 Smoke.prototype.display = function(){
-    
+
     noStroke();
     fill(255, 255, 255, this.timeToLive);
     ellipse(this.position.x, this.position.y, 12, 12);
-    
+
 };
 
 var Star = function(position){
-    
+
     this.size = random(15,25);
     Particle.call(this, position);
 };
@@ -83,9 +83,9 @@ Star.prototype.display = function(){
 
 ParticleSystem.prototype.addParticle = function() {
     var r = random(0,1);
-    
+
     this.particles.push(new Particle(this.origin));
-    
+
     if (r > 0.5) {
         this.particles.push(new Star(this.origin));
     } else {
@@ -112,7 +112,7 @@ draw = function() {
     background(72, 7, 105);
     particleSystem.addParticle();
     particleSystem.run();
-  
+
     // The magical cauldron
     fill(36, 36, 36);
     var cauldronX1 = 150;

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>9</zoom_level>
+  <element>
+    <type>com.baselet.element.old.allinone.ActivityDiagramText</type>
+    <coordinates>
+      <x>387</x>
+      <y>90</y>
+      <w>685</w>
+      <h>1223</h>
+    </coordinates>
+    <panel_attributes>title:Calculating Empoyee's pay
+Start
+Employee Chooses Payment method
+	[Direct Deposit]
+	Requires Direct Deposit Info
+
+	[Pick Up]
+	
+	[Mail]
+	Lookup Employee Address
+
+Determining Employee Pay Date
+
+	[Hourly]
+	Paid on Fridays
+	
+	
+	[Salary]
+	Paid on last day of the month
+
+	[Salary + Commision]
+	Paid Every other friday
+
+Determining Overtime Pay
+
+	[Hourly]
+	1.5 * Overtime Hours
+
+	[Else]
+	No overtime pay
+
+Determining Union Dues
+	[Not a union member]
+
+	[Union Member ]
+	Charged a Weekly Dues Rate
+		[If Weekly Service Charge Exists]
+		Charge Weekly Service
+		
+		[If no Service Charge]
+
+
+
+end</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
